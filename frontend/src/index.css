@@ -38,6 +38,7 @@ body {
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 3rem;
+  overflow: hidden;
 }
 
 .loginTitleContainer {
@@ -48,6 +49,7 @@ body {
   margin-top: 13rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
+  overflow: hidden;
 }
 
 .login {
