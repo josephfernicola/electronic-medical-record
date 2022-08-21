@@ -591,15 +591,21 @@ textarea {
     margin-top: 5rem;
   }
 
+  .background-image {
+    overflow: hidden;
+  }
+
   form.login {
     padding: 12px 18px;
     height: 15rem;
-    margin: 0px auto;
+    margin: 10px auto;
     top: 13rem;
   }
 
   .signup {
     margin-top: 1rem;
+    margin-bottom: 2rem;
+
   }
 
   .loginAndSignupContainer {
