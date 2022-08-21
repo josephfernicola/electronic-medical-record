@@ -535,7 +535,7 @@ textarea {
   align-items: center;
   border: 2px solid black;
   margin-bottom: 1rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 0.5rem;
   transition: all 0.1s ease-in-out;
 }
 .pmh {
@@ -608,9 +608,9 @@ textarea {
   }
 
   form.login {
-    padding: 12px 18px;
-    height: 17rem;
-    width: 18rem;
+    padding: 12px 25px;
+    height: 18rem;
+    width: 20rem;
     margin: 10px auto;
     top: 13rem;
   }
@@ -623,6 +623,29 @@ textarea {
 
   .loginAndSignupContainer {
     padding: 20px 20px;
+  }
+
+  .patientInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 1rem auto;
+    width: 80%;
+  }
+
+  .pmh {
+    width: 100%;
+  }
+
+  .patientInformation > div > div {
+    font-size: 1rem;
+  }
+
+  .patientInformation div {
+    margin-bottom: 0.5rem;
   }
 
 }
