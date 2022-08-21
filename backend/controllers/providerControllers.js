@@ -15,30 +15,11 @@ const getAllProviders = async (req, res) => {
 
 //login provider
 const loginProvider = async (req, res) => {
-  const {
-    email,
-    password,
-    firstName,
-    lastName,
-    credentials,
-    specialty,
-    photo,
-    notes,
-  } = req.body;
+  const { email, password } = req.body;
   try {
-    const provider = await Provider.login(
-      email,
-      password,
-      firstName,
-      lastName,
-      credentials,
-      specialty,
-      photo,
-      notes
-    );
+    const provider = await Provider.login(email, password);
 
     const token = createToken(provider._id);
-    console.log(token);
 
     res.status(200).json({ provider, token });
   } catch (error) {
