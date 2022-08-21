@@ -572,8 +572,13 @@ textarea {
     font-size: 0.6rem;
   }
   .emailAndLogOutContainer {
-    width: 10rem;
-    justify-content: start;
+  flex-direction: column;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  }
+  .emailAndLogOutContainer > button {
+    margin: 0 auto;
   }
   .logout {
     width: 4rem;
@@ -591,7 +596,6 @@ textarea {
 
   header .navbarContainer {
     padding: 5px 10px;
-    margin-right: 1rem;
   }
   .loginTitle {
     font-size: 1.2rem;
@@ -705,6 +709,15 @@ textarea {
   .noteListingContainer {
     margin: 0px auto;
     width: 20rem;
+  }
+
+  .profilePicAndProviderInfo {
+    width: 100%;
+  }
+
+  .noteListing {
+    width: 90%;
+    margin: 1rem auto;
   }
 
 
