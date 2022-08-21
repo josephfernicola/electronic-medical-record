@@ -27,6 +27,7 @@ const Signup = () => {
       <div className="signupFormContainer">
         <form className="signup" onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
+          <div>(Information cannot be changed later)</div>
           <div>
             <label htmlFor="email"> Email:</label>
             <input
@@ -34,6 +35,7 @@ const Signup = () => {
               name="email"
               id="email"
               autoComplete="off"
+              max="20"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -50,29 +52,31 @@ const Signup = () => {
             />
           </div>
           <div className="firstNameInput">
-            <label htmlFor="firstName"> First Name:</label>
+            <label htmlFor="firstName"> First Name (15 character limit):</label>
             <input
               type="text"
               name="firstName"
               id="firstName"
               autoComplete="off"
+              max="15"
               onChange={(e) => setFirstName(e.target.value)}
               value={firstName}
             />
           </div>
           <div className="lastNameInput">
-            <label htmlFor="lastName"> Last Name:</label>
+            <label htmlFor="lastName">Last Name (15 character limit):</label>
             <input
               type="text"
               name="lastName"
               id="lastName"
               autoComplete="off"
+              max="15"
               onChange={(e) => setLastName(e.target.value)}
               value={lastName}
             />
           </div>
           <fieldset>
-            <legend>Credentials (Cannot be changed later): </legend>
+            <legend>Credentials:</legend>
             <div>
               <input
                 type="radio"
