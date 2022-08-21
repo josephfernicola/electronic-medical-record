@@ -39,6 +39,7 @@ body {
   margin-right: 20px;
   margin-top: 3rem;
   overflow: hidden;
+  overscroll-behavior: contain;
 }
 
 .loginTitleContainer {
@@ -50,6 +51,7 @@ body {
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   overflow: hidden;
+  overscroll-behavior: contain;
 }
 
 .login {
