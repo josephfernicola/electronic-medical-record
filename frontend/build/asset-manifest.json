@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/emr/static/css/main.f03d2d5a.css",
+    "main.js": "/emr/static/js/main.415aad02.js",
+    "index.html": "/emr/index.html",
+    "main.f03d2d5a.css.map": "/emr/static/css/main.f03d2d5a.css.map",
+    "main.415aad02.js.map": "/emr/static/js/main.415aad02.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f03d2d5a.css",
+    "static/js/main.415aad02.js"
+  ]
+}

@@ -1,0 +1,544 @@
+/* google font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+
+.background-image {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  background-image: url('../images/hospital.jpg');
+  width: 100%;
+    height: 100%;
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  opacity: 0.4;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.homeContent, .loginTitleContainer {
+  position: fixed; 
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 3rem;
+}
+
+.login {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 18rem;
+  z-index: 9999;
+}
+
+.homepageText, .homepageWelcome {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.homepageWelcome {
+margin-bottom: 4rem;
+}
+
+header {
+  background: #fff;
+}
+header .navbarContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  /* 10 is up and down, 20 is left and right */
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: #333;
+  text-decoration: none;
+}
+.pages {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.navbarContainer label {
+  display: none;
+}
+
+.navbarTitle {
+  font-weight: 600;
+  font-size: 2rem;
+  padding: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.emailAndLogOutContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 20rem;
+}
+.loginAndSignupContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 700;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #fff;
+}
+
+.loginTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logout {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 1rem;
+  width: 7rem;
+}
+.error {
+  color: var(--error);
+}
+fieldset {
+  border: none;
+}
+form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 20rem;
+}
+form.login input,
+form.signup input[type="text"],
+form.signup input[type="password"],
+form.signup input[type="email"] {
+  width: 100%;
+}
+
+form.signup {
+  max-width: 400px;
+  margin: 2px auto;
+  padding: 20px;
+  background: #fff;
+  border: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 40rem;
+}
+
+.loginFormButton,
+.signupSubmitButton {
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.note {
+  cursor: pointer;
+}
+.patientProfileNote {
+  cursor: pointer;
+  margin-bottom: 1rem;
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid black;
+}
+
+input[type="email"],
+input[type="password"],
+.firstNameInput > input,
+.lastNameInput > input {
+  height: 2rem;
+}
+
+.nobleAndLogo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 8rem;
+}
+
+.homeContainer {
+  text-align: center;
+}
+
+.nobleAndLogo > div > svg {
+  height: 2rem;
+  width: 2rem;
+}
+.loginTitle {
+  text-align: center;
+}
+.addNoteForm,
+.editNoteForm {
+  margin: 5px auto;
+  padding: 20px;
+  background: #fff;
+  border: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.addNoteForm div,
+.editNoteForm .soapTitleAndText {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.addNoteContainer {
+  display: flex;
+  justify-content: space-around;
+  margin: 0px 40px;
+}
+
+.addNoteForm > button,
+.submitEditNoteButton {
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.editNoteButton {
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  height: 3rem;
+  width: 6rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.cancelEdit {
+  color: #fff;
+  background-color: var(--error);
+  border: none;
+  height: 2rem;
+  width: 5rem;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.deleteNoteButton {
+  color: #fff;
+  background-color: var(--error);
+  border: none;
+  height: 3rem;
+  width: 6rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  margin-left: 3rem;
+}
+.editNoteButtons {
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.editAndDeleteNoteButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.editNoteForm {
+  align-items: center;
+  width: 50rem;
+}
+
+.addPatientNoteButton {
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  height: 2.8rem;
+  width: 13rem;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+textarea {
+  width: 40rem;
+  height: 10rem;
+  font-family: "Poppins";
+  white-space: pre-wrap;
+}
+
+.textArea {
+  border: 1px solid black;
+  width: 100%;
+  height: 10rem;
+}
+
+.orderedByTitle {
+  font-weight: 400;
+}
+
+.currentNoteContainer {
+  min-height: 31rem;
+  height: 100%;
+  margin-top: 1rem;
+}
+
+.currentNoteInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  min-height: 25rem;
+  height: 100%;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border: 3px solid var(--primary);
+  border-radius: 60px;
+  padding: 2rem;
+}
+
+.soapTitle {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.providerNotesTitle {
+  margin-bottom: 2rem;
+  margin-top: 1.5rem;
+}
+.noteListing {
+  margin-bottom: 1rem;
+  width: 100%;
+  border: 2px solid black;
+  padding: 0.5rem;
+}
+.noteListingContainer {
+  width: 20rem;
+}
+
+.providerProfileContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.providerNotesTitle {
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.profilePicAndProviderInfo {
+  display: flex;
+  justify-content: space-around;
+  width: 30rem;
+}
+.providerProfileNotesContainer {
+  margin-right: 2rem;
+}
+
+.signedBy {
+  margin-top: 3rem;
+}
+
+.soapContent {
+  margin-bottom: 1rem;
+}
+
+.providerSearchContainer,
+.patientSearchContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.providerName {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.patientName,
+.searchFirstName {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.providerSearch,
+.patientSearch {
+  height: 2.5rem;
+  width: 15rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.patientNameOnNote {
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.patientListName {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.patientList {
+  width: 93%;
+}
+
+.patientListContainer {
+  display: flex;
+  justify-content: center;
+}
+
+
+.pmhTitle, .allergiesTitle {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+
+}
+
+
+.noResults {
+  color: var(--error)
+}
+
+.patientProfileContainer {
+  display: flex;
+  justify-content: center;
+}
+.patientProfileInfo {
+  max-width: 25rem;
+}
+.pmhCondition {
+  margin-bottom: 1rem;
+}
+
+.providerListNameAndCredentials {
+  border: 2px solid black;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  width: 25rem;
+  text-align: center;
+  transition: all 0.1s ease-in-out;
+}
+
+.providerListContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.patientProfileName {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+.patientProfileAge {
+  margin-bottom: 1rem;
+}
+.patientInformation {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 1fr;
+  justify-items: center;
+  align-items: center;
+  border: 2px solid black;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+  transition: all 0.1s ease-in-out;
+}
+.pmh {
+  width: 30rem;
+}
+.allergies {
+  text-align: center;
+}
+.patientNameAndAge {
+  width: 15rem;
+}
+.patientInformation:hover, .providerListNameAndCredentials:hover {
+  background-color: white;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.addNoteAllergy {
+  margin-bottom: 0.5rem;
+}
+
+
+
+@media (max-width: 900px) {
+  .navbarTitle {
+    font-size: 1rem;
+  }
+  .navbarEmail {
+    font-size: 0.7rem;
+  }
+  .emailAndLogOutContainer {
+    width: 12rem;
+  }
+  .logout {
+    width: 5rem;
+    font-size: 0.7em;
+    border-radius: 50rem;
+  }
+
+  .nobleAndLogo {
+    width: 5rem;
+    margin-right: 0.5rem;
+  }
+
+  header .navbarContainer {
+    padding: 10px 0;
+  }
+}
