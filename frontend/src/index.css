@@ -71,6 +71,12 @@ justify-content: center;
   align-items: center;
 }
 
+.loginFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .homepageText, .homepageWelcome {
   font-size: 2rem;
   font-weight: 600;
@@ -509,7 +515,6 @@ textarea {
   flex-direction: column;
 }
 
-
 .patientProfileName {
   font-weight: 600;
   font-size: 1.5rem;
@@ -575,6 +580,7 @@ textarea {
   }
   .loginTitle {
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
   }
   .loginDescription {
     font-size: 1rem;
@@ -586,10 +592,14 @@ textarea {
   }
 
   form.login {
-    margin-top: 15rem;
-    position: sticky;
-    margin: 0;
-    margin-top: 10rem;
+    padding: 12px 18px;
+    height: 15rem;
+    margin: 0px auto;
+    top: 13rem;
+  }
+
+  .signup {
+    margin-top: 1rem;
   }
 
   .loginAndSignupContainer {
