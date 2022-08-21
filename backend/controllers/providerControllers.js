@@ -16,8 +16,7 @@ const getAllProviders = async (req, res) => {
 //login provider
 const loginProvider = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email)
-  console.log(password)
+
 
   try {
     const provider = await Provider.login(email, password);

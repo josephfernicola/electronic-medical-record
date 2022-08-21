@@ -12,12 +12,11 @@ body {
   font-family: "Poppins";
 }
 
-.background-image {
+.background-image, .signup-background-image {
   position: fixed;
   left: 0;
   right: 0;
   z-index: 1;
-
   background-image: url('../images/hospital.jpg');
   width: 100%;
     height: 100%;
@@ -29,7 +28,7 @@ body {
   background-size: cover;
 }
 
-.homeContent, .loginTitleContainer {
+.homeContent {
   position: fixed; 
   left: 0;
   right: 0;
@@ -38,6 +37,15 @@ body {
   margin-right: 20px;
   margin-top: 3rem;
 }
+.loginTitleContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  margin-top: 13rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
 
 .login {
   position: fixed;
@@ -45,6 +53,21 @@ body {
   right: 0;
   top: 18rem;
   z-index: 9999;
+}
+.signup {
+z-index: 9999;
+position: relative;
+
+}
+.signupFormContainer {
+display: flex;
+justify-content: center;
+}
+
+.loginTitleAndFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .homepageText, .homepageWelcome {
@@ -153,7 +176,6 @@ form.signup input[type="email"] {
 
 form.signup {
   max-width: 400px;
-  margin: 2px auto;
   padding: 20px;
   background: #fff;
   border: 4px;

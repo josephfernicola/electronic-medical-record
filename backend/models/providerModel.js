@@ -39,7 +39,7 @@ const providerSchema = new Schema(
     notes: {
       type: Array,
       required: false,
-    }
+    },
   },
   { timestamps: true }
 );
@@ -65,7 +65,9 @@ providerSchema.statics.signup = async function (
     throw Error("Email is not valid");
   }
   if (!validator.isStrongPassword(password)) {
-    throw Error("Password not strong enough");
+    throw Error(
+      "Password not strong enough. Must be at least 8 characters, include one uppercase and lowercase letter, and special character."
+    );
   }
 
   if (emailExists) {
@@ -83,7 +85,7 @@ providerSchema.statics.signup = async function (
     credentials,
     specialty,
     photo,
-    notes
+    notes,
   });
 
   return provider;
