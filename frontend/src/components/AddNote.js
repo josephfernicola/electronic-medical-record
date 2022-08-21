@@ -119,7 +119,7 @@ const AddNote = () => {
         <h3>
           Add a note for <Link to={`/patient/${patientId}`}>{name}</Link>
         </h3>
-        <div>
+        <div className="titleAndtextarea">
           <label htmlFor="subjective"> Subjective:</label>
           <textarea
             name="subjective"
@@ -128,7 +128,7 @@ const AddNote = () => {
             value={subjective}
           />
         </div>
-        <div>
+        <div className="titleAndtextarea">
           <label htmlFor="objective"> Objective:</label>
           <textarea
             name="objective"
@@ -137,7 +137,7 @@ const AddNote = () => {
             value={objective}
           />
         </div>
-        <div>
+        <div className="titleAndtextarea">
           <label htmlFor="assessment"> Assessment:</label>
           <textarea
             name="assessment"
@@ -146,7 +146,7 @@ const AddNote = () => {
             value={assessment}
           />
         </div>
-        <div>
+        <div className="titleAndtextarea">
           <label htmlFor="plan"> Plan:</label>
           <textarea
             name="plan"

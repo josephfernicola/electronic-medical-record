@@ -39,7 +39,6 @@ body {
   margin-right: 20px;
   margin-top: 3rem;
   overflow: hidden;
-  overscroll-behavior: contain;
 }
 
 .loginTitleContainer {
@@ -270,6 +269,7 @@ input[type="password"],
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  width: 100%;
 }
 
 .addNoteForm div,
@@ -355,10 +355,10 @@ input[type="password"],
 }
 
 textarea {
-  width: 40rem;
   height: 10rem;
   font-family: "Poppins";
   white-space: pre-wrap;
+  width: 95%;
 }
 
 .textArea {
@@ -560,6 +560,10 @@ textarea {
   margin-bottom: 0.5rem;
 }
 
+.noteListing:hover {
+  background-color: white;
+}
+
 @media (max-width: 900px) {
   .navbarTitle {
     font-size: 0.7rem;
@@ -645,4 +649,64 @@ textarea {
   .patientInformation div {
     margin-bottom: 0.5rem;
   }
+
+  .providerListNameAndCredentials {
+    width: 20rem;
+  }
+  .providerListNameAndCredentials:hover, .patientInformation:hover {
+    transform: none;
+  }
+
+  .patientProfileInfo {
+    text-align: center;
+  }
+
+  .patientProfileContainer {
+    padding: 10px 10px;
+  }
+
+  .patientProfileNotesContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .patientProfileNote {
+    width: 90%;
+  }
+
+  .addNoteContainer {
+    flex-direction: column;
+    margin: 0 40px;
+  }
+.addNoteForm {
+  width: 100%;
+}
+  .patientInfoContainer {
+    text-align: center;
+  }
+
+  .addNoteContainer * {
+    font-size: 1rem;
+  }
+  .submitNoteButton {
+    font-size: 0.7rem;
+  }
+
+  .providerProfileContainer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .providerProfileNotesContainer {
+    margin-right: 0;
+  }
+  .noteListingContainer {
+    margin: 0px auto;
+    width: 20rem;
+  }
+
+
+  
 }
