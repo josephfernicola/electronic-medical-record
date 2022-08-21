@@ -12,24 +12,26 @@ body {
   font-family: "Poppins";
 }
 
-.background-image, .signup-background-image {
+.background-image,
+.signup-background-image {
   position: fixed;
   left: 0;
   right: 0;
   z-index: 1;
-  background-image: url('../images/hospital.jpg');
+  background-image: url("../images/hospital.jpg");
   width: 100%;
-    height: 100%;
+  height: 100%;
   -webkit-filter: blur(5px);
   filter: blur(5px);
   opacity: 0.4;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  overflow: hidden;
 }
 
 .homeContent {
-  position: fixed; 
+  position: fixed;
   left: 0;
   right: 0;
   z-index: 9999;
@@ -56,13 +58,12 @@ body {
   z-index: 9999;
 }
 .signup {
-z-index: 9999;
-position: relative;
-
+  z-index: 9999;
+  position: relative;
 }
 .signupFormContainer {
-display: flex;
-justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .loginTitleAndFormContainer {
@@ -77,13 +78,14 @@ justify-content: center;
   align-items: center;
 }
 
-.homepageText, .homepageWelcome {
+.homepageText,
+.homepageWelcome {
   font-size: 2rem;
   font-weight: 600;
 }
 
 .homepageWelcome {
-margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 header {
@@ -207,7 +209,6 @@ form.signup {
   margin-bottom: 1rem;
 }
 
-
 .note {
   cursor: pointer;
 }
@@ -250,7 +251,6 @@ input[type="password"],
   font-weight: 600;
   font-size: 2rem;
   margin-bottom: 2rem;
-  
 }
 
 .loginDescription {
@@ -480,17 +480,15 @@ textarea {
   justify-content: center;
 }
 
-
-.pmhTitle, .allergiesTitle {
+.pmhTitle,
+.allergiesTitle {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
-
 }
 
-
 .noResults {
-  color: var(--error)
+  color: var(--error);
 }
 
 .patientProfileContainer {
@@ -547,7 +545,8 @@ textarea {
 .patientNameAndAge {
   width: 15rem;
 }
-.patientInformation:hover, .providerListNameAndCredentials:hover {
+.patientInformation:hover,
+.providerListNameAndCredentials:hover {
   background-color: white;
   cursor: pointer;
   transform: scale(1.1);
@@ -556,8 +555,6 @@ textarea {
 .addNoteAllergy {
   margin-bottom: 0.5rem;
 }
-
-
 
 @media (max-width: 900px) {
   .navbarTitle {
@@ -569,12 +566,10 @@ textarea {
   .emailAndLogOutContainer {
     width: 10rem;
     justify-content: start;
-
   }
   .logout {
     width: 4rem;
     font-size: 0.5rem;
-
   }
   .nobleAndLogo > div > svg {
     height: 1.2rem;
@@ -618,7 +613,6 @@ textarea {
   .signup {
     margin-top: 1rem;
     margin-bottom: 2rem;
-
   }
 
   .loginAndSignupContainer {
@@ -647,5 +641,4 @@ textarea {
   .patientInformation div {
     margin-bottom: 0.5rem;
   }
-
 }
