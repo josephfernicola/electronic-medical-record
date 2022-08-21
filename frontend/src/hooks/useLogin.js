@@ -10,9 +10,7 @@ export const useLogin = () => {
     setIsLoading(true);
     setError(null);
     const provider = { email, password };
-    //console.log(credentials);
-
-
+    console.log(provider)
     const response = await fetch("/api/EMR/login", {
       method: "POST",
       body: JSON.stringify(provider),

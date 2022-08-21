@@ -37,7 +37,6 @@ const loginProvider = async (req, res) => {
       notes
     );
 
-
     const token = createToken(provider._id);
   
     res.status(200).json({ provider, token });

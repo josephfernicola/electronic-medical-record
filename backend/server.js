@@ -12,20 +12,12 @@ const app = express();
 //middleware
 app.use(express.json());
 
-// app.use((req, res, next) => {
-//   console.log(req.path, req.method);
-//   next();
-// });
 
 const path = require('path')
 
 // Serve static files from the React frontend app
 app.use(express.static(path.join(__dirname, '../frontend/build')))
 
-//routes
-// app.get('/', function (req, res) {
-//   res.send('Home');
-// });
 
 app.use("/api/patients/", patientRoutes);
 app.use("/api/", providerRoutes);

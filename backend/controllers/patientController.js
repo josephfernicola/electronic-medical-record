@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const uploadPatientData = async (req, res) => {
   const { name, pmh, notes, age, allergies } = req.body;
-  console.log(req.body)
+
   try {
     const patient = await Patient.signup(name, pmh, notes, age, allergies);
     res.status(200).json({ name, patient });
