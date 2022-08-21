@@ -37,6 +37,7 @@ body {
   margin-right: 20px;
   margin-top: 3rem;
 }
+
 .loginTitleContainer {
   position: fixed;
   left: 0;
@@ -235,6 +236,15 @@ input[type="password"],
 }
 .loginTitle {
   text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  
+}
+
+.loginDescription {
+  font-weight: 500;
+  font-size: 1.5rem;
 }
 .addNoteForm,
 .editNoteForm {
@@ -563,4 +573,27 @@ textarea {
   header .navbarContainer {
     padding: 10px 0;
   }
+  .loginTitle {
+    font-size: 1.2rem;
+  }
+  .loginDescription {
+    font-size: 1rem;
+    text-align: center;
+  }
+  .loginTitleContainer {
+    top: 0;
+    margin-top: 5rem;
+  }
+
+  form.login {
+    margin-top: 15rem;
+    position: sticky;
+    margin: 0;
+    margin-top: 10rem;
+  }
+
+  .loginAndSignupContainer {
+    padding: 20px 20px;
+  }
+
 }

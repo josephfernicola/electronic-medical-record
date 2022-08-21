@@ -17,13 +17,13 @@ const LoginScreen = () => {
       <div className="background-image"></div>
       <div className="loginTitleAndFormContainer">
         <div className="loginTitleContainer">
-          <h1 className="loginTitle">
+          <div className="loginTitle">
             Welcome to Noble Electronic Health Record System
-          </h1>
-          <h3>
+          </div>
+          <div className="loginDescription">
             Less time spent on documentation, means more time for you to deliver
             quality care
-          </h3>
+          </div>
         </div>
         <form className="login" onSubmit={handleSubmit}>
           <h3>Login</h3>
