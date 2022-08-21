@@ -35,7 +35,7 @@ const Signup = () => {
               name="email"
               id="email"
               autoComplete="off"
-              max="20"
+              maxLength="20"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
@@ -58,7 +58,7 @@ const Signup = () => {
               name="firstName"
               id="firstName"
               autoComplete="off"
-              max="15"
+              maxLength="15"
               onChange={(e) => setFirstName(e.target.value)}
               value={firstName}
             />
@@ -70,7 +70,7 @@ const Signup = () => {
               name="lastName"
               id="lastName"
               autoComplete="off"
-              max="15"
+              maxLength="15"
               onChange={(e) => setLastName(e.target.value)}
               value={lastName}
             />

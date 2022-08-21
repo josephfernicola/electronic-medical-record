@@ -152,7 +152,6 @@ a {
 }
 .error {
   color: var(--error);
-  text-align: center;
 }
 fieldset {
   border: none;
