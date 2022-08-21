@@ -203,6 +203,11 @@ form.signup {
   cursor: pointer;
 }
 
+.signupSubmitButton {
+  margin-bottom: 1rem;
+}
+
+
 .note {
   cursor: pointer;
 }
@@ -556,27 +561,34 @@ textarea {
 
 @media (max-width: 900px) {
   .navbarTitle {
-    font-size: 1rem;
-  }
-  .navbarEmail {
     font-size: 0.7rem;
   }
+  .navbarEmail {
+    font-size: 0.6rem;
+  }
   .emailAndLogOutContainer {
-    width: 12rem;
+    width: 10rem;
+    justify-content: start;
+
   }
   .logout {
-    width: 5rem;
-    font-size: 0.7em;
-    border-radius: 50rem;
+    width: 4rem;
+    font-size: 0.5rem;
+
+  }
+  .nobleAndLogo > div > svg {
+    height: 1.2rem;
+    width: 1.2rem;
   }
 
   .nobleAndLogo {
-    width: 5rem;
-    margin-right: 0.5rem;
+    width: 3rem;
+    margin-right: 0.7rem;
   }
 
   header .navbarContainer {
-    padding: 10px 0;
+    padding: 5px 10px;
+    margin-right: 1rem;
   }
   .loginTitle {
     font-size: 1.2rem;
@@ -597,7 +609,8 @@ textarea {
 
   form.login {
     padding: 12px 18px;
-    height: 15rem;
+    height: 17rem;
+    width: 18rem;
     margin: 10px auto;
     top: 13rem;
   }
