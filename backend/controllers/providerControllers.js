@@ -38,10 +38,11 @@ const loginProvider = async (req, res) => {
     );
 
     const token = createToken(provider._id);
-  
+    console.log(token);
+
     res.status(200).json({ provider, token });
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ error: error.message, token: token });
   }
 };
 
