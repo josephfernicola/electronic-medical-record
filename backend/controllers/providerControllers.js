@@ -19,7 +19,6 @@ const loginProvider = async (req, res) => {
 
   try {
     const provider = await Provider.login(email, password);
-    console.log(provider._id);
 
     const token = createToken(provider._id);
 
