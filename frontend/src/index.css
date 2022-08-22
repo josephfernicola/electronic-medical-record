@@ -407,6 +407,8 @@ textarea {
 .providerNotesTitle {
   margin-bottom: 2rem;
   margin-top: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 .noteListing {
   margin-bottom: 1rem;
@@ -424,7 +426,6 @@ textarea {
   width: 100%;
 }
 .providerNotesTitle {
-  margin-bottom: 2rem;
   font-weight: 600;
   font-size: 1.5rem;
 }
