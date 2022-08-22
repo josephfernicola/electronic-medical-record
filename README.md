@@ -1,4 +1,4 @@
-Noble Electronic Health Record App
+Electronic Health Record App
 
 Full stack MERN electronic health record application
 

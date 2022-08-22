@@ -42,8 +42,7 @@ body {
   z-index: 50;
   margin-left: 20px;
   margin-right: 20px;
-  margin-top: 3rem;
-
+  padding-top: 3rem;
 }
 
 .loginTitleContainer {
@@ -85,7 +84,6 @@ body {
 .homepageText {
   font-size: 1.5rem;
   z-index: 50;
-
 }
 
 header {

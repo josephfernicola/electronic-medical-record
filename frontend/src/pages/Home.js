@@ -3,11 +3,11 @@ const Home = () => {
     <div className="homeContainer">
       <div className="background-image"></div>
       <div className="homeContent">
-        <p className="homepageWelcome"> Noble Electronic Health Record</p>
-        <p className="homepageText">
+        <div className="homepageWelcome"> Noble Electronic Health Record</div>
+        <div className="homepageText">
           Create notes for your patients, edit your notes, view other provider
           notes
-        </p>
+        </div>
       </div>
     </div>
   );
