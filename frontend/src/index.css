@@ -80,10 +80,12 @@ body {
   align-items: center;
 }
 
-.homepageText,
 .homepageWelcome {
   font-size: 2rem;
   font-weight: 600;
+}
+.homepageText {
+font-size: 1.5rem
 }
 
 .homepageWelcome {
