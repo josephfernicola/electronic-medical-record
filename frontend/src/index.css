@@ -27,7 +27,7 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  overflow: hidden;
+
 }
 
 .loadingScreen {
@@ -47,31 +47,20 @@ body {
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 3rem;
-  overflow: hidden;
 }
 
 .loginTitleContainer {
-  position: fixed;
-  left: 0;
-  right: 0;
   z-index: 9999;
-  margin-top: 13rem;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  overflow: hidden;
-  overscroll-behavior: contain;
 }
 
 .login {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 18rem;
   z-index: 9999;
 }
 .signup {
   z-index: 9999;
-  position: relative;
+
 }
 .signupFormContainer {
   display: flex;
@@ -82,6 +71,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .loginFormContainer {
@@ -187,6 +177,7 @@ form.login {
   flex-direction: column;
   justify-content: space-between;
   height: 20rem;
+  width: 20rem;
 }
 form.login input,
 form.signup input[type="text"],
@@ -620,21 +611,16 @@ textarea {
     text-align: center;
   }
   .loginTitleContainer {
-    top: 0;
-    margin-top: 5rem;
-  }
-
-  .background-image {
-    overflow: hidden;
+    margin-top: 1rem;
   }
 
   form.login {
     padding: 12px 22px;
     height: 18rem;
     width: 17rem;
-    margin: 10px auto;
-    top: 13rem;
+    margin-top: 1rem;
   }
+
 
   .signup {
     margin-top: 1rem;
