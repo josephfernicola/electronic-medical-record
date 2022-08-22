@@ -564,6 +564,10 @@ textarea {
   background-color: white;
 }
 
+.soapTitleAndText > textarea {
+  width: 20rem;
+}
+
 @media (max-width: 900px) {
   .navbarTitle {
     font-size: 0.7rem;
@@ -724,6 +728,8 @@ textarea {
     margin: 1rem auto;
   }
 
-
+.editNoteForm {
+  width: 80%;
+}
   
 }
