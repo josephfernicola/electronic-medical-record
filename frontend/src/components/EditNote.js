@@ -21,6 +21,7 @@ const EditNote = () => {
   const [allProviderNotes, setAllProviderNotes] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const fetchPatientInfo = async () => {
       const response = await fetch("/api/patients/getPatients", {
         headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
