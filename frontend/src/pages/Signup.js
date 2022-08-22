@@ -35,7 +35,7 @@ const Signup = () => {
               name="email"
               id="email"
               autoComplete="off"
-              maxLength="20"
+              maxLength="30"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
             />
