@@ -40,8 +40,14 @@ const Profile = () => {
       fetchUserInfo();
       //setError(null);
     }
-  }, []);
+  }, [location.pathname]);
 
+
+  if (!firstName && !lastName) {
+    return <div className="loadingScreen">
+      <div>Loading Page...</div>
+      </div>
+  }
   return (
     <div className="providerProfileContainer">
       <div className="profilePicAndProviderInfo">

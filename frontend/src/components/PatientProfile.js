@@ -65,7 +65,13 @@ const PatientProfile = () => {
     };
     fetchProviderInfo();
   };
-
+  if (pmh.length === 0 && allergies.length === 0 && notes.length === 0) {
+    return (
+      <div className="loadingScreen">
+        <div>Loading Page...</div>
+      </div>
+    );
+  }
   return (
     <div className="patientProfileContainer">
       <div className="patientProfileInfo">

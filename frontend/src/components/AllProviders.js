@@ -53,6 +53,12 @@ const AllProviders = () => {
     }
   }, [user]);
 
+  if (!allProviders) {
+    return <div className="loadingScreen">
+      <div>Loading Page...</div>
+      </div>
+  }
+
   return (
     <div className="allProvidersContainer">
       <div className="providerSearchContainer">

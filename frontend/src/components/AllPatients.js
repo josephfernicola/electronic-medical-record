@@ -54,6 +54,12 @@ const AllPatients = () => {
     }
   };
 
+  if (!allPatients) {
+    return <div className="loadingScreen">
+      <div>Loading Page...</div>
+      </div>
+  }
+
   return (
     <div className="allPatientsContainer">
       <div className="patientSearchContainer">

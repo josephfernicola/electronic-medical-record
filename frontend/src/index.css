@@ -30,6 +30,15 @@ body {
   overflow: hidden;
 }
 
+.loadingScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 3rem;
+  font-weight: 600;
+}
+
 .homeContent {
   position: fixed;
   left: 0;

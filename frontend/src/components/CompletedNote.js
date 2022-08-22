@@ -111,6 +111,17 @@ const CompletedNote = () => {
     navigate(`/EMR/${user.provider._id}`);
   };
 
+  if (
+    !currentNote.patient &&
+    !currentNote.subjective &&
+    !currentNote.objective
+  ) {
+    return (
+      <div className="loadingScreen">
+        <div>Loading Page...</div>
+      </div>
+    );
+  }
   return (
     <div className="currentNoteContainer">
       <div className="currentNoteInfo">
