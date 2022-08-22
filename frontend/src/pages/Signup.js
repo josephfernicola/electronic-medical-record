@@ -29,7 +29,7 @@ const Signup = () => {
           <h3>Sign Up</h3>
           <div>(Information cannot be changed later)</div>
           <div>
-            <label htmlFor="email"> Email:</label>
+            <label htmlFor="email"> Email (30 character limit):</label>
             <input
               type="email"
               name="email"
