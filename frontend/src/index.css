@@ -680,13 +680,11 @@ textarea {
 
   .addNoteContainer {
     flex-direction: column;
-    margin: 0 40px;
+    margin: 0 auto;
   }
-.addNoteForm {
-  width: 100%;
-}
   .patientInfoContainer {
     text-align: center;
+    margin: 0 1rem;
   }
 
   .addNoteContainer * {
@@ -713,6 +711,12 @@ textarea {
 
   .profilePicAndProviderInfo {
     width: 100%;
+  }
+
+  .addNoteForm {
+    margin: 0px auto;
+    width: 80%;
+    margin-bottom: 5px;
   }
 
   .noteListing {
