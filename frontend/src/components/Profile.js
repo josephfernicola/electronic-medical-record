@@ -42,12 +42,14 @@ const Profile = () => {
     }
   }, [location.pathname]);
 
+  // if (!firstName && !lastName) {
+    return (
+      <div className="loadingScreen">
 
-  if (!firstName && !lastName) {
-    return <div className="loadingScreen">
-      <div>Loading Page...</div>
+        <div>Loading Page...</div>
       </div>
-  }
+    );
+  //}
   return (
     <div className="providerProfileContainer">
       <div className="profilePicAndProviderInfo">

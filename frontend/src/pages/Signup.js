@@ -8,6 +8,8 @@ const Signup = () => {
   const [credentials, setCredentials] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordError, setPasswordError] = useState(null)
   const { signup, error, isLoading } = useSignup();
 
   const navigate = useNavigate();
@@ -15,7 +17,13 @@ const Signup = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await signup(email, password, firstName, lastName, credentials);
+    if (password === confirmPassword) {
+      await signup(email, password, firstName, lastName, credentials);
+      setPasswordError(null)
+    }
+    if (password !== confirmPassword) {
+      setPasswordError(<div className="confirmPassword">Passwords do not match</div>)
+    }
   };
   const handleRadioChange = (e) => {
     setCredentials(e.target.value);
@@ -51,6 +59,17 @@ const Signup = () => {
               value={password}
             />
           </div>
+          <div>
+            <label htmlFor="confirmPassword"> Confirm Password:</label>
+            <input
+              type="password"
+              name="confirmPassword"
+              id="confirmPassword"
+              autoComplete="off"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </div>
+          {passwordError}
           <div className="firstNameInput">
             <label htmlFor="firstName"> First Name (15 character limit):</label>
             <input
