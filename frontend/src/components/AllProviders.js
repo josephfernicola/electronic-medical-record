@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AllProviders = () => {
   const [allProviders, setAllProviders] = useState(null);
@@ -9,6 +9,8 @@ const AllProviders = () => {
   const [noResults, setNoResults] = useState("");
   const { user } = useAuthContext();
   const [matchList, setMatchList] = useState([]);
+
+  const navigate = useNavigate()
 
   const searchInputChange = async (e) => {
     let searchMatches = [];
@@ -78,15 +80,15 @@ const AllProviders = () => {
         {allProviders &&
           allProviders.length > 0 &&
           allProviders.map((provider) => (
-            <Link to={`/EMR/${provider._id}`}>
-              <div className="providerListNameAndCredentials" key={provider._id}>
+  
+              <div className="providerListNameAndCredentials" key={provider._id} onClick={() => {navigate(`/EMR/${provider._id}`)}}>
                 <span className="providerName">
                   {provider.firstName} {provider.lastName}
                 </span>
 
                 <p>Credentials: {provider.credentials}</p>
               </div>
-            </Link>
+
           ))}
       </div>
     </div>

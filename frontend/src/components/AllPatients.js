@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AllPatients = () => {
   const [allPatients, setAllPatients] = useState(null);
@@ -8,6 +8,8 @@ const AllPatients = () => {
   const [error, setError] = useState(null);
   const { user } = useAuthContext();
   const [noResults, setNoResults] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
@@ -22,7 +24,9 @@ const AllPatients = () => {
 
       if (response.ok) {
         setAllPatients(json.sort((a, b) => a.name.localeCompare(b.name)));
-        setOriginalAllPatients(json.sort((a, b) => a.name.localeCompare(b.name)));
+        setOriginalAllPatients(
+          json.sort((a, b) => a.name.localeCompare(b.name))
+        );
       }
     };
     if (user) {
@@ -39,8 +43,8 @@ const AllPatients = () => {
       return match.name.match(regex);
     });
     let firstTenMatches = patientMatches.slice(0, 10);
-    firstTenMatches.sort((a, b) => a.name.localeCompare(b.name))
-    console.log(firstTenMatches)
+    firstTenMatches.sort((a, b) => a.name.localeCompare(b.name));
+    console.log(firstTenMatches);
     setAllPatients(firstTenMatches);
     setNoResults("");
     if (e.target.value === "") {
@@ -55,9 +59,11 @@ const AllPatients = () => {
   };
 
   if (!allPatients) {
-    return <div className="loadingScreen">
-      <div>Loading Page...</div>
+    return (
+      <div className="loadingScreen">
+        <div>Loading Page...</div>
       </div>
+    );
   }
 
   return (
@@ -80,29 +86,33 @@ const AllPatients = () => {
           {allPatients &&
             allPatients.length > 0 &&
             allPatients.map((patient) => (
-              <Link to={`/patient/${patient._id}`}>
-                <div className="patientInformation" key={patient._id}>
-                  <div className="patientNameAndAge">
-                    <div className="patientListName">{patient.name}</div>
+              <div
+                className="patientInformation"
+                key={patient._id}
+                onClick={() => {
+                  navigate(`/patient/${patient._id}`);
+                }}
+              >
+                <div className="patientNameAndAge">
+                  <div className="patientListName">{patient.name}</div>
 
-                    <div>Age: {patient.age}</div>
-                  </div>
-                  <div className="pmh">
-                    <div className="pmhTitle">Past Medical History</div>
-                    {patient.pmh.map((disease, index) => (
-                      <div key={index}>
-                        <div>{`${disease.disease} ${disease.icd}`}</div>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="allergies">
-                    <div className="allergiesTitle">Allergies</div>
-                    {patient.allergies.map((allergy) => (
-                      <div className="eachAllergy">{allergy}</div>
-                    ))}
-                  </div>
+                  <div>Age: {patient.age}</div>
                 </div>
-              </Link>
+                <div className="pmh">
+                  <div className="pmhTitle">Past Medical History</div>
+                  {patient.pmh.map((disease, index) => (
+                    <div key={index}>
+                      <div>{`${disease.disease} ${disease.icd}`}</div>
+                    </div>
+                  ))}
+                </div>
+                <div className="allergies">
+                  <div className="allergiesTitle">Allergies</div>
+                  {patient.allergies.map((allergy, index) => (
+                    <div className="eachAllergy" key={index}>{allergy}</div>
+                  ))}
+                </div>
+              </div>
             ))}
         </div>
       </div>
