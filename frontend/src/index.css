@@ -568,6 +568,7 @@ textarea {
   width: 20rem;
 }
 
+
 @media (max-width: 900px) {
   .navbarTitle {
     font-size: 0.7rem;
@@ -723,4 +724,5 @@ textarea {
   .editNoteForm {
     width: 80%;
   }
+
 }

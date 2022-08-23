@@ -63,6 +63,7 @@ const AddNote = () => {
       currentdate.getSeconds();
 
     const noteId = uuidv4();
+
     await addProviderNote(
       subjective,
       objective,
@@ -124,6 +125,7 @@ const AddNote = () => {
           <textarea
             name="subjective"
             autoComplete="off"
+            required
             onChange={(e) => setSubjective(e.target.value)}
             value={subjective}
           />
@@ -133,6 +135,7 @@ const AddNote = () => {
           <textarea
             name="objective"
             autoComplete="off"
+            required
             onChange={(e) => setObjective(e.target.value)}
             value={objective}
           />
@@ -142,6 +145,7 @@ const AddNote = () => {
           <textarea
             name="assessment"
             autoComplete="off"
+            required
             onChange={(e) => setAssessment(e.target.value)}
             value={assessment}
           />
@@ -151,6 +155,7 @@ const AddNote = () => {
           <textarea
             name="plan"
             autoComplete="off"
+            required
             onChange={(e) => setPlan(e.target.value)}
             value={plan}
           />

@@ -135,6 +135,7 @@ const EditNote = () => {
           <textarea
             name="subjective"
             autoComplete="off"
+            required
             onChange={(e) => setSubjective(e.target.value)}
             value={subjective}
           />
@@ -144,6 +145,7 @@ const EditNote = () => {
           <textarea
             name="objective"
             autoComplete="off"
+            required
             onChange={(e) => setObjective(e.target.value)}
             value={objective}
           />
@@ -153,6 +155,7 @@ const EditNote = () => {
           <textarea
             name="assessment"
             autoComplete="off"
+            required
             onChange={(e) => setAssessment(e.target.value)}
             value={assessment}
           />
@@ -162,6 +165,7 @@ const EditNote = () => {
           <textarea
             name="plan"
             autoComplete="off"
+            required
             onChange={(e) => setPlan(e.target.value)}
             value={plan}
           />
