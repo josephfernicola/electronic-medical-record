@@ -1,6 +1,6 @@
 const Home = () => {
   return (
-    <div className="homeContainer">
+    <main className="homeContainer">
       <div className="background-image"></div>
       <div className="homeContent">
         <div className="homepageWelcome"> Noble Electronic Health Record</div>
@@ -9,7 +9,7 @@ const Home = () => {
           notes
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 
