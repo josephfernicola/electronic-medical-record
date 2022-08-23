@@ -55,8 +55,7 @@ providerSchema.statics.signup = async function (
   photo,
   notes
 ) {
-  const emailExists = await this.findOne({ email });
-
+  const emailExists = await this.findOne({ email: { $regex: /email/i } });
   //validation
   if (!email || !password) {
     throw Error("All fields must be filled");
@@ -96,7 +95,10 @@ providerSchema.statics.login = async function (email, password) {
   if (!email || !password) {
     throw Error("All fields must be filled");
   }
-  const provider = await this.findOne({ email });
+
+  const provider = await this.findOne({
+    "email": { $regex: new RegExp(email, "i") },
+  });
 
   if (!provider) {
     throw Error("Incorrect email");

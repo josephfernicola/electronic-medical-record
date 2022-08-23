@@ -12,13 +12,11 @@ const Signup = () => {
   const [passwordError, setPasswordError] = useState(null)
   const { signup, error, isLoading } = useSignup();
 
-  const navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    console.log(email)
     if (password === confirmPassword) {
-      await signup(email, password, firstName, lastName, credentials);
+      await signup(email.toLowerCase(), password, firstName, lastName, credentials);
       setPasswordError(null)
     }
     if (password !== confirmPassword) {

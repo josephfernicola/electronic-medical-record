@@ -10,7 +10,7 @@ import PatientProfile from "./components/PatientProfile";
 import Profile from "./components/Profile";
 import CompletedNote from "./components/CompletedNote";
 import EditNote from "./components/EditNote";
-import Login from "./pages/Login";
+
 import Signup from "./pages/Signup";
 import LoginScreen from "./pages/LoginScreen";
 import LoginNavbar from "./components/LoginNavBar";

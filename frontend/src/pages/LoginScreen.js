@@ -9,7 +9,7 @@ const LoginScreen = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await login(email, password);
+    await login(email.toLowerCase(), password);
   };
 
   return (
