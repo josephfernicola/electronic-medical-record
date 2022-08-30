@@ -93,7 +93,7 @@ const AllPatients = () => {
           name="patientSearch"
           className="patientSearch"
           autoComplete="off"
-          placeholder="Search for your patient..."
+          placeholder="Patient First Name..."
           maxLength="30"
           onChange={searchInputChange}
         ></input>

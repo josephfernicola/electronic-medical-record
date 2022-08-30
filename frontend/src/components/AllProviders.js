@@ -94,7 +94,7 @@ const AllProviders = () => {
           name="providerSearch"
           autoComplete="off"
           className="providerSearch"
-          placeholder="Search for a provider..."
+          placeholder="Provider First Name..."
           maxLength="30"
           onChange={searchInputChange}
         ></input>
