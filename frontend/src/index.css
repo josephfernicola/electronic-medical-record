@@ -13,7 +13,7 @@ body {
   font-family: "Poppins";
 }
 .confirmPassword {
-  color: var(--error)
+  color: var(--error);
 }
 
 .background-image,
@@ -215,7 +215,6 @@ form.signup {
   cursor: pointer;
 }
 .patientProfileNote {
-  cursor: pointer;
   margin-bottom: 1rem;
   border: 2px solid black;
   padding: 0.5rem;
@@ -656,7 +655,10 @@ textarea {
   }
 }
 
-
+.patientProfileNote:hover {
+  background-color: white;
+  cursor: pointer;
+}
 
 @media (max-width: 900px) {
   .navbarTitle {
@@ -795,7 +797,6 @@ textarea {
     width: 20rem;
   }
 
-
   .addNoteForm {
     margin: 0px auto;
     width: 80%;
@@ -810,5 +811,4 @@ textarea {
   .editNoteForm {
     width: 80%;
   }
-
 }
