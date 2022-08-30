@@ -3,7 +3,6 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { useLocation, Link } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 
-
 const Profile = () => {
   const { user } = useAuthContext();
   const [firstName, setFirstName] = useState("");
@@ -51,8 +50,20 @@ const Profile = () => {
   if (!firstName && !lastName) {
     return (
       <div className="loadingScreen">
-
-        <div>Loading Page...</div>
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
   }

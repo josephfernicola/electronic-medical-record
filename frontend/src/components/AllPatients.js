@@ -66,7 +66,20 @@ const AllPatients = () => {
   if (!allPatients) {
     return (
       <div className="loadingScreen">
-        <div>Loading Page...</div>
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
   }

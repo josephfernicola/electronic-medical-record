@@ -118,7 +118,20 @@ const CompletedNote = () => {
   ) {
     return (
       <div className="loadingScreen">
-        <div>Loading Page...</div>
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
   }

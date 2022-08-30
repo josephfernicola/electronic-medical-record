@@ -68,7 +68,20 @@ const PatientProfile = () => {
   if (pmh.length === 0 && allergies.length === 0 && notes.length === 0) {
     return (
       <div className="loadingScreen">
-        <div>Loading Page...</div>
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
     );
   }

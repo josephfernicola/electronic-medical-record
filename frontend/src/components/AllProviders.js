@@ -62,9 +62,24 @@ const AllProviders = () => {
   }, [user]);
 
   if (!allProviders) {
-    return <div className="loadingScreen">
-      <div>Loading Page...</div>
+    return (
+      <div className="loadingScreen">
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
+    );
   }
 
   return (
