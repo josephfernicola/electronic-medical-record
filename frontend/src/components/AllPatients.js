@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const AllPatients = () => {
   const [allPatients, setAllPatients] = useState(null);
@@ -8,6 +9,7 @@ const AllPatients = () => {
   const [error, setError] = useState(null);
   const { user } = useAuthContext();
   const [noResults, setNoResults] = useState("");
+  const { logout } = useLogout();
 
   const navigate = useNavigate();
 
@@ -27,6 +29,9 @@ const AllPatients = () => {
         setOriginalAllPatients(
           json.sort((a, b) => a.name.localeCompare(b.name))
         );
+      }
+      if (!response.ok) {
+        logout();
       }
     };
     if (user) {

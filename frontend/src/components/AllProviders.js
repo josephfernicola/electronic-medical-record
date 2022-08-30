@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { Link, useNavigate } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
+
 
 const AllProviders = () => {
   const [allProviders, setAllProviders] = useState(null);
@@ -9,6 +11,7 @@ const AllProviders = () => {
   const [noResults, setNoResults] = useState("");
   const { user } = useAuthContext();
   const [matchList, setMatchList] = useState([]);
+  const { logout } = useLogout();
 
   const navigate = useNavigate()
 
@@ -47,6 +50,9 @@ const AllProviders = () => {
       if (response.ok) {
         setAllProviders(json);
         setOriginalAllProviders(json);
+      }
+      if (!response.ok) {
+        logout();
       }
     };
     if (user) {

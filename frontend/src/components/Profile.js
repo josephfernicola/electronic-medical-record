@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLocation, Link } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
+
 
 const Profile = () => {
   const { user } = useAuthContext();
@@ -10,6 +12,7 @@ const Profile = () => {
   const [providerNotes, setProviderNotes] = useState([]);
   const [providerId, setProviderId] = useState("");
   const location = useLocation();
+  const { logout } = useLogout();
 
   useEffect(() => {
     if (!user) {
@@ -34,6 +37,9 @@ const Profile = () => {
             setProviderNotes(provider.notes);
           }
         });
+      }
+      if (!response.ok) {
+        logout();
       }
     };
     if (user) {
