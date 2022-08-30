@@ -64,9 +64,9 @@ const AllPatients = () => {
   };
 
   if (!allPatients) {
-    return (
+    return ( //loading screen animation
       <div className="loadingScreen">
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>

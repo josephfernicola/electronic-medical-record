@@ -1,23 +1,23 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEffect, useState } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const CompletedNote = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { user } = useAuthContext();
   const { dispatch } = useAuthContext();
-  const [notes, setNotes] = useState([]);
   const [currentNote, setCurrentNote] = useState({});
   const [editNoteButton, setEditNoteButton] = useState("");
   const [deleteNoteButton, setDeleteNoteButton] = useState("");
   const [providerId, setProviderId] = useState("");
   const [patientId, setPatientId] = useState("");
+  const { logout } = useLogout();
 
   useEffect(() => {
     if (!user) {
-      //setError("You must be logged in");
-      return;
+      logout();
     }
     const fetchProviderInfo = async () => {
       const response = await fetch("/api/EMR/providers", {
@@ -27,7 +27,6 @@ const CompletedNote = () => {
       if (response.ok) {
         json.forEach(async function (provider) {
           if (location.pathname.includes(provider._id)) {
-            setNotes(provider.notes);
             provider.notes.forEach(async function (note) {
               if (location.pathname.includes(note.noteID)) {
                 setCurrentNote(note);
@@ -60,7 +59,6 @@ const CompletedNote = () => {
         json.forEach(async function (patient) {
           patient.notes.forEach((note) => {
             if (location.pathname.includes(note.noteID)) {
-              //console.log(patient._id);
               setPatientId(patient._id);
             }
           });
@@ -70,9 +68,7 @@ const CompletedNote = () => {
     if (user) {
       fetchProviderInfo();
       fetchPatientInfo();
-      //setError(null);
     }
-    //console.log(currentNote);
   }, []);
 
   const handleDelete = async () => {
@@ -118,7 +114,7 @@ const CompletedNote = () => {
   ) {
     return (
       <div className="loadingScreen">
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>
@@ -178,5 +174,3 @@ const CompletedNote = () => {
 };
 
 export default CompletedNote;
-
-//not reading pathname properly

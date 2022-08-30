@@ -3,24 +3,28 @@ import { useAuthContext } from "../hooks/useAuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 
-
 const AllProviders = () => {
   const [allProviders, setAllProviders] = useState(null);
   const [originalAllProviders, setOriginalAllProviders] = useState(null);
-  const [error, setError] = useState(null);
+  const [fullNames, setFullNames] = useState({})
   const [noResults, setNoResults] = useState("");
   const { user } = useAuthContext();
-  const [matchList, setMatchList] = useState([]);
   const { logout } = useLogout();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+
+
+  }, []);
 
   const searchInputChange = async (e) => {
     let searchMatches = [];
     searchMatches.push(originalAllProviders);
     let providerMatches = searchMatches[0].filter((match) => {
+      let fullName = match.firstName.concat((" "), match.lastName)
       const regex = new RegExp(`^${e.target.value}`, "gi");
-      return match.firstName.match(regex);
+      return fullName.match(regex);
     });
     const firstTenMatches = providerMatches.slice(0, 10);
     setAllProviders(firstTenMatches.sort());
@@ -38,8 +42,7 @@ const AllProviders = () => {
 
   useEffect(() => {
     if (!user) {
-      setError("You must be logged in");
-      return;
+      logout();
     }
     const fetchUserInfo = async () => {
       const response = await fetch("/api/EMR/providers", {
@@ -57,14 +60,14 @@ const AllProviders = () => {
     };
     if (user) {
       fetchUserInfo();
-      setError(null);
     }
   }, [user]);
 
   if (!allProviders) {
+    //loading screen animation
     return (
       <div className="loadingScreen">
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>
@@ -91,7 +94,7 @@ const AllProviders = () => {
           name="providerSearch"
           autoComplete="off"
           className="providerSearch"
-          placeholder="Search by first name..."
+          placeholder="Search for a provider..."
           maxLength="30"
           onChange={searchInputChange}
         ></input>
@@ -101,15 +104,19 @@ const AllProviders = () => {
         {allProviders &&
           allProviders.length > 0 &&
           allProviders.map((provider) => (
-  
-              <div className="providerListNameAndCredentials" key={provider._id} onClick={() => {navigate(`/EMR/${provider._id}`)}}>
-                <span className="providerName">
-                  {provider.firstName} {provider.lastName}
-                </span>
+            <div
+              className="providerListNameAndCredentials"
+              key={provider._id}
+              onClick={() => {
+                navigate(`/EMR/${provider._id}`);
+              }}
+            >
+              <span className="providerName">
+                {provider.firstName} {provider.lastName}
+              </span>
 
-                <p>Credentials: {provider.credentials}</p>
-              </div>
-
+              <p>Credentials: {provider.credentials}</p>
+            </div>
           ))}
       </div>
     </div>

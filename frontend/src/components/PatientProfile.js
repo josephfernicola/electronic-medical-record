@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useLogout } from "../hooks/useLogout";
 
 const PatientProfile = () => {
   const { user } = useAuthContext();
@@ -12,14 +13,14 @@ const PatientProfile = () => {
   const [patientId, setPatientId] = useState("");
   const [providerName, setProviderName] = useState("");
   const [providerId, setProviderId] = useState("");
+  const { logout } = useLogout();
 
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (!user) {
-      //setError("You must be logged in");
-      return;
+      logout();
     }
     const fetchPatientInfo = async () => {
       const response = await fetch("/api/patients/getPatients", {
@@ -42,7 +43,6 @@ const PatientProfile = () => {
     };
     if (user) {
       fetchPatientInfo();
-      //setError(null);
     }
   }, []);
 
@@ -68,7 +68,7 @@ const PatientProfile = () => {
   if (pmh.length === 0 && allergies.length === 0 && notes.length === 0) {
     return (
       <div className="loadingScreen">
-        <div class="lds-spinner">
+        <div className="lds-spinner">
           <div></div>
           <div></div>
           <div></div>

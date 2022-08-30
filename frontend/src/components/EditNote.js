@@ -38,22 +38,7 @@ const EditNote = () => {
         });
       }
     };
-    const fetchProviderInfo = async () => {
-      //console.log(user.token)
-      const response = await fetch("/api/EMR/providers", {
-        headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
-      });
-      const json = await response.json();
-
-      if (response.ok) {
-        //setAllProviders(json);
-        json.forEach((provider) => {
-          if (location.pathname.includes(provider._id)) {
-            setAllProviderNotes(provider.notes);
-          }
-        });
-      }
-    };
+    
     if (user) {
       fetchPatientInfo();
     }
@@ -87,8 +72,6 @@ const EditNote = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    //console.log(e.target);
-    //console.log(subjective)
     const currentdate = new Date();
     const date =
       currentdate.getMonth() +

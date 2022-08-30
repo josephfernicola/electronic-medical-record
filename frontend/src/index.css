@@ -384,6 +384,7 @@ textarea {
   height: 100%;
   margin-left: 2rem;
   margin-right: 2rem;
+  margin-bottom: 1rem;
   border: 3px solid var(--primary);
   border-radius: 60px;
   padding: 2rem;
@@ -420,10 +421,10 @@ textarea {
   font-size: 1.5rem;
 }
 
-.profilePicAndProviderInfo {
+.providerNameAndCredentialsContainer {
   display: flex;
   justify-content: space-around;
-  width: 30rem;
+  width: 100%;
 }
 .providerProfileNotesContainer {
   margin-right: 2rem;
@@ -794,9 +795,6 @@ textarea {
     width: 20rem;
   }
 
-  .profilePicAndProviderInfo {
-    width: 100%;
-  }
 
   .addNoteForm {
     margin: 0px auto;
