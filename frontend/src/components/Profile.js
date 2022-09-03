@@ -40,6 +40,9 @@ const Profile = () => {
     };
     if (user) {
       fetchUserInfo();
+      // if (providerNotes.length === 0) {
+      //   setProviderNotes(<div className="zeroProfileNotes">*No notes yet</div>)
+      // }
     }
   }, [location.pathname]);
 
@@ -88,6 +91,7 @@ const Profile = () => {
                 </Link>
               </div>
             ))}
+          {providerNotes.length === 0 && <div className="zeroProfileNotes">* No Notes yet</div>}
         </div>
       </div>
     </div>

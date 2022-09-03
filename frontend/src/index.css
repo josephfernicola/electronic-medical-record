@@ -660,6 +660,10 @@ textarea {
   cursor: pointer;
 }
 
+.zeroProfileNotes {
+  color: var(--error)
+}
+
 @media (max-width: 900px) {
   .navbarTitle {
     font-size: 0.7rem;
