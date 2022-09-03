@@ -97,7 +97,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="MD"
                 name="credentials"
                 value="Medical Doctor"
                 onChange={handleRadioChange}
@@ -107,7 +107,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="PA"
                 name="credentials"
                 value="Physician Assistant"
                 onChange={handleRadioChange}
@@ -117,7 +117,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="RN"
                 name="credentials"
                 value="Registered Nurse"
                 onChange={handleRadioChange}
@@ -128,7 +128,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="PT"
                 name="credentials"
                 value="Physical Therapist"
                 onChange={handleRadioChange}
@@ -139,7 +139,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="SLP"
                 name="credentials"
                 value="Speech Language Pathologist"
                 onChange={handleRadioChange}
@@ -149,7 +149,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="OT"
                 name="credentials"
                 value="Occupational Therapist"
                 onChange={handleRadioChange}
@@ -160,7 +160,7 @@ const Signup = () => {
             <div>
               <input
                 type="radio"
-                id="credentials"
+                id="RT"
                 name="credentials"
                 value="Respiratory Therapist"
                 onChange={handleRadioChange}

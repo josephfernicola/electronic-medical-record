@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAuthContext} from "./useAuthContext";
+import { useAuthContext } from "./useAuthContext";
 
 export const useLogin = () => {
   const [error, setError] = useState(null);
@@ -9,7 +9,9 @@ export const useLogin = () => {
   const login = async (email, password) => {
     setIsLoading(true);
     setError(null);
+
     const provider = { email, password };
+    console.log(provider);
     const response = await fetch("/api/EMR/login", {
       method: "POST",
       body: JSON.stringify(provider),
