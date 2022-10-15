@@ -9,18 +9,26 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [passwordError, setPasswordError] = useState(null)
+  const [passwordError, setPasswordError] = useState(null);
   const { signup, error, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email)
+    console.log(email);
     if (password === confirmPassword) {
-      await signup(email.toLowerCase(), password, firstName, lastName, credentials);
-      setPasswordError(null)
+      await signup(
+        email.toLowerCase(),
+        password,
+        firstName,
+        lastName,
+        credentials
+      );
+      setPasswordError(null);
     }
     if (password !== confirmPassword) {
-      setPasswordError(<div className="confirmPassword">Passwords do not match</div>)
+      setPasswordError(
+        <div className="confirmPassword">Passwords do not match</div>
+      );
     }
   };
   const handleRadioChange = (e) => {
@@ -30,7 +38,7 @@ const Signup = () => {
   return (
     <div className="signupPageContainer">
       <div className="signup-background-image"></div>
-      <div className="signupFormContainer">
+      <main className="signupFormContainer">
         <form className="signup" onSubmit={handleSubmit}>
           <h3>Sign Up</h3>
           <div>(Information cannot be changed later)</div>
@@ -177,7 +185,7 @@ const Signup = () => {
           </button>
           {error && <div className="error">{error}</div>}
         </form>
-      </div>
+      </main>
     </div>
   );
 };
