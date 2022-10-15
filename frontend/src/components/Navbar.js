@@ -23,7 +23,7 @@ const Navbar = () => {
   }, [user]);
   return (
     <header>
-      <div className="navbarContainer">
+      <nav className="navbarContainer">
         <Link to="/">
           <div className="nobleAndLogo">
             <div>{<FaNotesMedical />}</div>
@@ -61,7 +61,7 @@ const Navbar = () => {
             </div>
           )}
         </nav>
-      </div>
+      </nav>
     </header>
   );
 };

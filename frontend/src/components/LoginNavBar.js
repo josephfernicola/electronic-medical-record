@@ -7,14 +7,14 @@ const LoginNavbar = () => {
 
 
   return (
-    <div className="loginNavbarContainer">
+    <nav className="loginNavbarContainer">
       {!user && (
         <div className="loginAndSignupContainer">
           <Link to="/login">Login</Link>
           <Link to="/signup">Signup</Link>
         </div>
       )}
-    </div>
+    </nav>
   );
 };
 

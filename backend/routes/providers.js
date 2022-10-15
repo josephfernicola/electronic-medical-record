@@ -9,7 +9,7 @@ const {
   deleteProviderNote,
 } = require("../controllers/providerControllers");
 
-const requireAuth = require("../middleware/requireAuth")
+const requireAuth = require("../middleware/requireAuth");
 
 
 const router = express.Router();
