@@ -47,7 +47,7 @@ export const useProviderUpdateNote = () => {
     plan,
     date,
     noteID,
-    time,
+    time
   ) => {
     const note = {
       subjective,
@@ -58,19 +58,22 @@ export const useProviderUpdateNote = () => {
       noteID,
       time,
     };
-
-    const response = await fetch(
-      `/api/providers/editNote/${user.provider._id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-          "Content-type": "application/json",
-        },
-        method: "PATCH",
-        body: JSON.stringify(note),
-      }
-    );
-    const json = await response.json();
+    try {
+      const response = await fetch(
+        `/api/providers/editNote/${user.provider._id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+            "Content-type": "application/json",
+          },
+          method: "PATCH",
+          body: JSON.stringify(note),
+        }
+      );
+      setError(null);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return { updateProviderNote };

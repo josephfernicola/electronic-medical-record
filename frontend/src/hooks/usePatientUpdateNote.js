@@ -69,9 +69,9 @@ export const usePatientUpdateNote = () => {
         method: "PATCH",
         body: JSON.stringify(note),
       });
-      
+      setError(null)
     } catch (error) {
-      console.error(error);
+      setError(error)
     }
   };
 

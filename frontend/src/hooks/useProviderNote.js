@@ -33,15 +33,19 @@ export const useProviderNote = () => {
       date,
       time,
     };
-    const response = await fetch(`/api/${user.provider._id}`, {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-        "Content-type": "application/json",
-      },
-      method: "PATCH",
-      body: JSON.stringify(note),
-    });
-    const json = await response.json();
+    try {
+      const response = await fetch(`/api/${user.provider._id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-type": "application/json",
+        },
+        method: "PATCH",
+        body: JSON.stringify(note),
+      });
+      setError(null);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return { addProviderNote };

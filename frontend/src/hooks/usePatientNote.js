@@ -60,18 +60,21 @@ export const usePatientNote = () => {
       patientName,
       noteID,
       date,
-      time
+      time,
     };
-
-    const response = await fetch(`/api/patients/note/${patientId}`, {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-        "Content-type": "application/json",
-      },
-      method: "PATCH",
-      body: JSON.stringify(note),
-    });
-    const json = await response.json();
+    try {
+      const response = await fetch(`/api/patients/note/${patientId}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-type": "application/json",
+        },
+        method: "PATCH",
+        body: JSON.stringify(note),
+      });
+      setError(null);
+    } catch (error) {
+      setError(error);
+    }
   };
 
   return { addPatientNote };
