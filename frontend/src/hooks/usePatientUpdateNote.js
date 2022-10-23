@@ -8,7 +8,7 @@ export const usePatientUpdateNote = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const [patientId, setPatientId] = useState("");
-  const [noteID, setNoteID] = useState("")
+  const [noteID, setNoteID] = useState("");
 
   const location = useLocation();
 
@@ -28,8 +28,8 @@ export const usePatientUpdateNote = () => {
           patient.notes.forEach((note) => {
             if (location.pathname.includes(note.noteID)) {
               //console.log(patient._id);
-              setPatientId(patient._id)
-              setNoteID(noteID)
+              setPatientId(patient._id);
+              setNoteID(noteID);
             }
           });
         });
@@ -37,7 +37,7 @@ export const usePatientUpdateNote = () => {
     };
     if (user) {
       fetchPatientInfo();
-    
+
       //setError(null);
     }
   }, []);
@@ -49,7 +49,7 @@ export const usePatientUpdateNote = () => {
     plan,
     date,
     noteID,
-    time,
+    time
   ) => {
     const note = {
       subjective,
@@ -60,18 +60,19 @@ export const usePatientUpdateNote = () => {
       noteID,
       time,
     };
-    //console.log(user.token)
-
-    const response = await fetch(`/api/patients/editNote/${patientId}`, {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-        "Content-type": "application/json",
-      },
-      method: "PATCH",
-      body: JSON.stringify(note),
-    });
-    const json = await response.json();
-    console.log(json)
+    try {
+      const response = await fetch(`/api/patients/editNote/${patientId}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-type": "application/json",
+        },
+        method: "PATCH",
+        body: JSON.stringify(note),
+      });
+      
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return { updatePatientNote };
