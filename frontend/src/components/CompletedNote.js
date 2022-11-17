@@ -32,6 +32,7 @@ const CompletedNote = () => {
                 setCurrentNote(note);
                 setProviderId(provider._id);
                 if (
+                  user.provider &&
                   note.provider ===
                   user.provider.firstName + " " + user.provider.lastName
                 ) {
