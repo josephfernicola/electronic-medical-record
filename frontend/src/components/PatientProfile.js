@@ -100,7 +100,10 @@ const PatientProfile = () => {
             allergies: allergies,
           }}
         >
-          <button className="addPatientNoteButton">Add Note for {name}</button>
+          {user.provider ? (
+          <button className="addPatientNoteButton">Add Note for {name}</button>)
+        : <span className="empty"></span>}
+
         </Link>
         <h3>Past Medical History</h3>
         {pmh.map((condition, index) => (
