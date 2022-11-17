@@ -1,12 +1,14 @@
 const express = require("express");
 const {
   loginProvider,
+  loginGuest,
   signupProvider,
   getProviderProfile,
   addProviderNote,
   getAllProviders,
   updateProviderNote,
   deleteProviderNote,
+
 } = require("../controllers/providerControllers");
 
 const requireAuth = require("../middleware/requireAuth");
@@ -20,6 +22,9 @@ router.post("/EMR/signup", signupProvider);
 
 //login provider
 router.post("/EMR/login", loginProvider);
+
+//login guest
+router.post("/EMR/loginGuest", loginGuest)
 
 //require auth for all routes besides logging in and signing up
 router.use(requireAuth)

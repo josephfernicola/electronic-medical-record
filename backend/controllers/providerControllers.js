@@ -28,6 +28,12 @@ const loginProvider = async (req, res) => {
   }
 };
 
+const loginGuest = async = (req, res) => {
+  const guestInfo = req.body;
+  console.log(guestInfo)
+  console.log("Made it to API")
+}
+
 //sign up provider
 const signupProvider = async (req, res) => {
   const {
@@ -73,8 +79,6 @@ const getProviderProfile = async (req, res) => {
   }
   res.status(200).json(provider);
 };
-
-//update user info
 
 //add provider note
 const addProviderNote = async (req, res) => {
@@ -171,6 +175,7 @@ module.exports = {
   addProviderNote,
   getAllProviders,
   loginProvider,
+  loginGuest,
   signupProvider,
   updateProviderNote,
   deleteProviderNote,

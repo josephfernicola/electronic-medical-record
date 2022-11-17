@@ -122,6 +122,10 @@ header a {
   padding: 5px;
 }
 
+.guestLogin:hover {
+  cursor: pointer;
+}
+
 a {
   text-decoration: none;
   color: black;
