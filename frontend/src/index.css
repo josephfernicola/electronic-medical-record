@@ -126,6 +126,10 @@ header a {
   cursor: pointer;
 }
 
+.empty {
+  display: none;
+}
+
 a {
   text-decoration: none;
   color: black;

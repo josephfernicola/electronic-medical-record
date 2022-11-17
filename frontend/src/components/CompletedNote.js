@@ -84,9 +84,6 @@ const CompletedNote = () => {
       }
     );
     const patientJson = await patientResponse.json();
-    if (patientResponse.ok) {
-      console.log(patientJson);
-    }
 
     const providerResponse = await fetch(
       `/api/providers/deleteProviderNote/${providerId}`,
@@ -100,9 +97,6 @@ const CompletedNote = () => {
       }
     );
     const providerJson = await providerResponse.json();
-    if (providerResponse.ok) {
-      console.log(providerJson);
-    }
 
     navigate(`/EMR/${user.provider._id}`);
   };

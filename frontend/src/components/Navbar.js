@@ -8,18 +8,33 @@ const Navbar = () => {
   const [currentUserId, setCurrentUserId] = useState("");
   const { logout } = useLogout();
   const { user } = useAuthContext();
+  const [email, setEmail] = useState("");
   const handleLogout = () => {
     logout();
   };
 
   useEffect(() => {
     const setUserID = async () => {
-      if (user) {
+      if (user.provider) {
         const local = await JSON.parse(localStorage.getItem("user"));
         setCurrentUserId(local.provider._id);
       }
+      else if (user.guestInfo) {
+         const local = await JSON.parse(localStorage.getItem("user"));
+          setCurrentUserId(local.token)
+      }
+    };
+    const setUserEmail = async () => {
+      if (user.guestInfo) {
+        setEmail("Guest");
+      } 
+      else if (user.provider !== null) {
+        const local = await JSON.parse(localStorage.getItem("user"));
+        setEmail(local.provider.email);
+      }
     };
     setUserID();
+    setUserEmail();
   }, [user]);
   return (
     <header>
@@ -30,14 +45,12 @@ const Navbar = () => {
             <div className="navbarTitle">Noble</div>
           </div>
         </Link>
-        {user ? (
+        {user.provider ? (
           <Link to={`/EMR/${currentUserId}`}>
             <div className="navbarTitle">Profile</div>
           </Link>
         ) : (
-          <Link to="/">
-            <div className="navbarTitle">Profile</div>
-          </Link>
+          <div className="empty"></div>
         )}
         <Link to="/EMR/providers">
           <div className="navbarTitle">Providers</div>
@@ -48,7 +61,7 @@ const Navbar = () => {
         <nav>
           {user && (
             <div className="emailAndLogOutContainer">
-              <div className="navbarEmail">{user.provider.email}</div>
+              <div className="navbarEmail">{email}</div>
               <button onClick={handleLogout} className="logout">
                 Log Out
               </button>

@@ -6,19 +6,20 @@ export const useGuestLogin = () => {
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
 
-
   const guestLogin = async () => {
     setIsLoading(true);
     setError(null);
 
+
     const response = await fetch("/api/EMR/loginGuest", {
       method: "POST",
-      body: "Guest",
+      body: JSON.stringify({guestInfo: "Guest"}),
       headers: {
         "Content-type": "application/json",
       },
     });
     const json = await response.json();
+    console.log("json response" , json)
 
     if (!response.ok) {
       setIsLoading(false);

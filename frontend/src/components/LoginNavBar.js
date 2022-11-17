@@ -5,15 +5,12 @@ import { useGuestLogin } from "../hooks/useGuestLogin";
 
 const LoginNavbar = () => {
   const { user } = useAuthContext();
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
-  const { dispatch } = useAuthContext();
-  const {guestLogin} = useGuestLogin();
+  const {guestLogin, error, isLoading} = useGuestLogin();
 
 
-  const loginAsGuest = async (e) => {
-    e.preventDefault();
-    console.log("Login as guest function")
+  const loginAsGuest = async () => {
+
+    console.log("Login as guest function");
     await guestLogin();
 
   };

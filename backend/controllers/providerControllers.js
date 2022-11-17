@@ -2,6 +2,7 @@ require("dotenv").config();
 const Provider = require("../models/providerModel");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
+const { v4: uuidv4 } = require('uuid');
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
@@ -16,7 +17,6 @@ const getAllProviders = async (req, res) => {
 //login provider
 const loginProvider = async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const provider = await Provider.login(email, password);
 
@@ -29,9 +29,16 @@ const loginProvider = async (req, res) => {
 };
 
 const loginGuest = async = (req, res) => {
-  const guestInfo = req.body;
-  console.log(guestInfo)
-  console.log("Made it to API")
+  const guest = req.body;
+  const guestInfo = guest.guestInfo
+  try {
+
+    const token = createToken(uuidv4);
+
+    res.status(200).json({ guestInfo, token });
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
 }
 
 //sign up provider

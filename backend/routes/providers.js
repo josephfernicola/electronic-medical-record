@@ -24,10 +24,10 @@ router.post("/EMR/signup", signupProvider);
 router.post("/EMR/login", loginProvider);
 
 //login guest
-router.post("/EMR/loginGuest", loginGuest)
+router.post("/EMR/loginGuest", loginGuest);
 
 //require auth for all routes besides logging in and signing up
-router.use(requireAuth)
+router.use(requireAuth);
 
 //GET all providers
 router.get("/EMR/providers", getAllProviders);
