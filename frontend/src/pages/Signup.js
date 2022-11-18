@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useSignup } from "../hooks/useSignup";
-import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const [firstName, setFirstName] = useState("");
@@ -14,7 +13,6 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email);
     if (password === confirmPassword) {
       await signup(
         email.toLowerCase(),
