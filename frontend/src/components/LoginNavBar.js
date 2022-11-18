@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useGuestLogin } from "../hooks/useGuestLogin";
 
 const LoginNavbar = () => {
   const { user } = useAuthContext();
-  const {guestLogin, error, isLoading} = useGuestLogin();
-
+  const { guestLogin, error, isLoading } = useGuestLogin();
 
   const loginAsGuest = async () => {
-
-    console.log("Login as guest function");
     await guestLogin();
-
   };
   return (
     <nav className="loginNavbarContainer">

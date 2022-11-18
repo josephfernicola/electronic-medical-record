@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { useNavigate } from "react-router-dom";
 
 export const useGuestLogin = () => {
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
   const { dispatch } = useAuthContext();
@@ -19,7 +21,6 @@ export const useGuestLogin = () => {
       },
     });
     const json = await response.json();
-    console.log("json response" , json)
 
     if (!response.ok) {
       setIsLoading(false);
@@ -32,6 +33,7 @@ export const useGuestLogin = () => {
       //update auth context
       dispatch({ type: "LOGIN", payload: json });
       setIsLoading(false);
+      navigate("/")
     }
   };
   return { guestLogin, isLoading, error };
