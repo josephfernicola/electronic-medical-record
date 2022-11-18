@@ -1,5 +1,5 @@
 {
-  "proxy": "https://noble-ehr.herokuapp.com",
+  "proxy": "https://noble-emr.herokuapp.com",
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
