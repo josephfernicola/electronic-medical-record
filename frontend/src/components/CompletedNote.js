@@ -99,6 +99,15 @@ const CompletedNote = () => {
     );
     const providerJson = await providerResponse.json();
 
+    const currentUserLocalStorage = JSON.parse(localStorage.getItem("user"));
+    currentUserLocalStorage.provider.notes.forEach((ele) => {
+      if (ele.noteID === currentNote.noteID) {
+        const index = currentUserLocalStorage.provider.notes.indexOf(ele)
+        currentUserLocalStorage.provider.notes.splice(index, 1)
+      }
+    });
+    localStorage.setItem("user", JSON.stringify(currentUserLocalStorage));
+
     navigate(`/EMR/${user.provider._id}`);
   };
 

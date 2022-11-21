@@ -72,6 +72,11 @@ export const usePatientNote = () => {
         body: JSON.stringify(note),
       });
       setError(null);
+      //add note to local storage
+      const currentUserLocalStorage = JSON.parse(localStorage.getItem("user"));
+      currentUserLocalStorage.provider.notes.push(note);
+      localStorage.setItem("user", JSON.stringify(currentUserLocalStorage))
+      
     } catch (error) {
       setError(error);
     }

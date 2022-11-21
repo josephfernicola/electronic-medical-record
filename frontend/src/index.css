@@ -130,6 +130,59 @@ header a {
   display: none;
 }
 
+.deleteAccountButton {
+  color: #fff;
+  background-color: var(--error);
+  border: none;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  margin-top: 3rem;
+}
+
+.areYouSureContainer {
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  margin-top: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.areYouSureYes {
+  color: #fff;
+  background-color: var(--error);
+  border: none;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 10rem;
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+.areYouSureNo {
+  color: #fff;
+  background-color: var(--primary);
+  border: none;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.areYouSureButtonsContainer {
+  margin-top: 1.5rem;
+  height: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.sureContainer {
+  width: 18rem;
+  margin-bottom: 2rem;
+}
 a {
   text-decoration: none;
   color: black;
@@ -670,7 +723,7 @@ textarea {
 }
 
 .zeroProfileNotes {
-  color: var(--error)
+  color: var(--error);
 }
 
 @media (max-width: 900px) {
@@ -757,9 +810,19 @@ textarea {
   .providerListNameAndCredentials {
     width: 20rem;
   }
+  .providerNameAndCredentialsContainer {
+    height: 100%;
+  }
   .providerListNameAndCredentials:hover,
   .patientInformation:hover {
     transform: none;
+  }
+  .providerNameAndCredentials {
+    height: auto;
+  }
+
+  .sureContainer {
+    height: auto;
   }
 
   .patientProfileInfo {
@@ -826,5 +889,8 @@ textarea {
   }
   .loginAndSignupContainer {
     font-size: 1rem;
+  }
+  .areYouSureButtonsContainer {
+    align-items: center;
   }
 }

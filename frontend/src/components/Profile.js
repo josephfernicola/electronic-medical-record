@@ -10,6 +10,7 @@ const Profile = () => {
   const [credentials, setCredentials] = useState("");
   const [providerNotes, setProviderNotes] = useState([]);
   const [providerId, setProviderId] = useState("");
+  const [areYouSure, setAreYouSure] = useState("");
   const location = useLocation();
   const { logout } = useLogout();
 
@@ -17,6 +18,7 @@ const Profile = () => {
     if (!user) {
       logout();
     }
+
     const fetchUserInfo = async () => {
       const response = await fetch("/api/EMR/providers", {
         headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
@@ -40,11 +42,8 @@ const Profile = () => {
     };
     if (user) {
       fetchUserInfo();
-      // if (providerNotes.length === 0) {
-      //   setProviderNotes(<div className="zeroProfileNotes">*No notes yet</div>)
-      // }
     }
-  }, [location.pathname]);
+  }, [location.pathname, user]);
 
   if (!firstName && !lastName) {
     //loading screen animation
@@ -67,12 +66,83 @@ const Profile = () => {
       </div>
     );
   }
+
+  const handleAreYouSure = () => {
+    setAreYouSure(
+      <div className="areYouSureContainer">
+        <div>Are you sure? This cannot be undone.</div>
+        <div className="areYouSureButtonsContainer">
+          <button className="areYouSureYes" onClick={handleDelete}>
+            Delete my account
+          </button>
+          <button className="areYouSureNo" onClick={handleCancel}>
+            Cancel
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const handleCancel = () => {
+    setAreYouSure("");
+  };
+
+  const handleDelete = async () => {
+    //if signing up, add notes to local storage
+    const noteIDsAndPatientNames = [];
+    if (user.provider.notes.length > 0) {
+      user.provider.notes.forEach((note) => {
+        noteIDsAndPatientNames.push({
+          name: note.patient,
+          noteID: note.noteID,
+        });
+      });
+    }
+
+    const patientResponse = await fetch(
+      "/api/patients/deleteMultiplePatientNotes",
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-type": "application/json",
+        },
+        method: "PATCH",
+        body: JSON.stringify({
+          noteIDsAndPatientNames,
+        }),
+      }
+    );
+    const patientJson = await patientResponse.json();
+    console.log(patientJson);
+
+    const providerResponse = await fetch(
+      "/api/providers/deleteProviderAccount",
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+          "Content-type": "application/json",
+        },
+        method: "PATCH",
+        body: JSON.stringify({
+          id: user.provider._id,
+        }),
+      }
+    );
+    const providerJson = await providerResponse.json();
+    console.log(providerJson);
+    logout();
+  };
+
   return (
     <div className="providerProfileContainer">
       <div className="providerNameAndCredentialsContainer">
         <div className="providerNameAndCredentials">
           <h1>{`${firstName} ${lastName}`}</h1>
           <h2>{credentials}</h2>
+          <button className="deleteAccountButton" onClick={handleAreYouSure}>
+            Delete Account
+          </button>
+          <div className="sureContainer">{areYouSure}</div>
         </div>
       </div>
 
@@ -91,7 +161,9 @@ const Profile = () => {
                 </Link>
               </div>
             ))}
-          {providerNotes.length === 0 && <div className="zeroProfileNotes">* No Notes yet</div>}
+          {providerNotes.length === 0 && (
+            <div className="zeroProfileNotes">* No Notes yet</div>
+          )}
         </div>
       </div>
     </div>

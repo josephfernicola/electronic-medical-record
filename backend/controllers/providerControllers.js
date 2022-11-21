@@ -2,7 +2,7 @@ require("dotenv").config();
 const Provider = require("../models/providerModel");
 const jwt = require("jsonwebtoken");
 const mongoose = require("mongoose");
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 const createToken = (_id) => {
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
@@ -28,18 +28,17 @@ const loginProvider = async (req, res) => {
   }
 };
 
-const loginGuest = async = (req, res) => {
+const loginGuest = (async = (req, res) => {
   const guest = req.body;
-  const guestInfo = guest.guestInfo
+  const guestInfo = guest.guestInfo;
   try {
-
     const token = createToken(uuidv4);
 
     res.status(200).json({ guestInfo, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
-}
+});
 
 //sign up provider
 const signupProvider = async (req, res) => {
@@ -177,6 +176,17 @@ const deleteProviderNote = async (req, res) => {
   return res.status(200).json(note);
 };
 
+//delete a provider from db
+const deleteProvider = async (req, res) => {
+  const { id } = req.body;
+  const provider = await Provider.deleteOne({ _id: id });
+  if (!provider) {
+    return res.status(404).json({ error: "No such provider" });
+  }
+  console.log(provider)
+  return res.status(200).json(provider);
+};
+
 module.exports = {
   getProviderProfile,
   addProviderNote,
@@ -186,4 +196,5 @@ module.exports = {
   signupProvider,
   updateProviderNote,
   deleteProviderNote,
+  deleteProvider,
 };

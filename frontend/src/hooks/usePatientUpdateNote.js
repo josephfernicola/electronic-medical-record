@@ -69,9 +69,18 @@ export const usePatientUpdateNote = () => {
         method: "PATCH",
         body: JSON.stringify(note),
       });
-      setError(null)
+      const json = await response.json();
+      const currentUserLocalStorage = JSON.parse(localStorage.getItem("user"));
+      currentUserLocalStorage.provider.notes.forEach((ele) => {
+        if (ele.noteID === noteID) {
+          const index = currentUserLocalStorage.provider.notes.indexOf(ele)
+          currentUserLocalStorage.provider.notes.splice(index, 1, note)
+        }
+      });
+      localStorage.setItem("user", JSON.stringify(currentUserLocalStorage));
+      setError(null);
     } catch (error) {
-      setError(error)
+      setError(error);
     }
   };
 

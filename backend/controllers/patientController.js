@@ -110,10 +110,27 @@ const deletePatientNote = async (req, res) => {
   return res.status(200).json(note);
 };
 
+const deleteMultiplePatientNotes = async (req, res) => {
+  //console.log(req.body.noteIDsAndPatientNames);
+  req.body.noteIDsAndPatientNames.forEach(async (ele) => {
+    const note = await Patient.findOneAndUpdate(
+      { name: ele.name },
+      {
+        $pull: { notes: { noteID: ele.noteID } },
+      }
+    );
+    if (!note) {
+      return res.status(400).json({ error: "No such note" });
+    }
+  });
+  return res.status(200).json({ info: req.body.noteIDsAndPatientNames });
+};
+
 module.exports = {
   uploadPatientData,
   getAllPatients,
   addPatientNote,
   updatePatientNote,
   deletePatientNote,
+  deleteMultiplePatientNotes,
 };

@@ -8,6 +8,7 @@ const {
   getAllProviders,
   updateProviderNote,
   deleteProviderNote,
+  deleteProvider
 
 } = require("../controllers/providerControllers");
 
@@ -45,10 +46,13 @@ router.get("/EMR/notes/:id", (req, res) => {
 router.patch("/:id", addProviderNote);
 
 //update provider note
-router.patch("/providers/editNote/:id", updateProviderNote)
+router.patch("/providers/editNote/:id", updateProviderNote);
 
 //delete Provider Note
-router.patch("/providers/deleteProviderNote/:id", deleteProviderNote)
+router.patch("/providers/deleteProviderNote/:id", deleteProviderNote);
+
+//delete provider account
+router.patch("/providers/deleteProviderAccount", deleteProvider);
 
 
 module.exports = router;
