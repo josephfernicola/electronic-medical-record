@@ -139,9 +139,15 @@ const Profile = () => {
         <div className="providerNameAndCredentials">
           <h1>{`${firstName} ${lastName}`}</h1>
           <h2>{credentials}</h2>
-          <button className="deleteAccountButton" onClick={handleAreYouSure}>
-            Delete Account
-          </button>
+          {user.provider &&
+            location.pathname.includes(user.provider._id)(
+              <button
+                className="deleteAccountButton"
+                onClick={handleAreYouSure}
+              >
+                Delete Account
+              </button>
+            )}
           <div className="sureContainer">{areYouSure}</div>
         </div>
       </div>
