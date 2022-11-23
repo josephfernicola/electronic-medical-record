@@ -11,61 +11,9 @@ const Profile = () => {
   const [providerNotes, setProviderNotes] = useState([]);
   const [providerId, setProviderId] = useState("");
   const [areYouSure, setAreYouSure] = useState("");
+  const [deleteButton, setDeleteButton] = useState("");
   const location = useLocation();
   const { logout } = useLogout();
-
-  useEffect(() => {
-    if (!user) {
-      logout();
-    }
-
-    const fetchUserInfo = async () => {
-      const response = await fetch("/api/EMR/providers", {
-        headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
-      });
-      const json = await response.json();
-
-      if (response.ok) {
-        json.forEach((provider) => {
-          if (location.pathname.includes(provider._id)) {
-            setFirstName(provider.firstName);
-            setLastName(provider.lastName);
-            setCredentials(provider.credentials);
-            setProviderId(provider._id);
-            setProviderNotes(provider.notes);
-          }
-        });
-      }
-      if (!response.ok) {
-        logout();
-      }
-    };
-    if (user) {
-      fetchUserInfo();
-    }
-  }, [location.pathname, user]);
-
-  if (!firstName && !lastName) {
-    //loading screen animation
-    return (
-      <div className="loadingScreen">
-        <div className="lds-spinner">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    );
-  }
 
   const handleAreYouSure = () => {
     setAreYouSure(
@@ -98,7 +46,6 @@ const Profile = () => {
         });
       });
     }
-
     const patientResponse = await fetch(
       "/api/patients/deleteMultiplePatientNotes",
       {
@@ -133,21 +80,83 @@ const Profile = () => {
     logout();
   };
 
+  useEffect(() => {
+    if (!user) {
+      logout();
+    }
+
+    const fetchUserInfo = async () => {
+      const response = await fetch("/api/EMR/providers", {
+        headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
+      });
+      const json = await response.json();
+
+      if (response.ok) {
+        json.forEach((provider) => {
+          if (location.pathname.includes(provider._id)) {
+            setFirstName(provider.firstName);
+            setLastName(provider.lastName);
+            setCredentials(provider.credentials);
+            setProviderId(provider._id);
+            setProviderNotes(provider.notes);
+          }
+        });
+      }
+      if (!response.ok) {
+        logout();
+      }
+    };
+    if (user) {
+      fetchUserInfo();
+
+      if (user.guestInfo) {
+        setDeleteButton("");
+      } else if (
+        user.provider &&
+        location.pathname.includes(user.provider._id)
+      ) {
+        setDeleteButton(
+          <button
+            className="deleteAccountButton"
+            onClick={handleAreYouSure}
+          >Delete Account</button>
+        );
+      }
+    }
+  }, [location.pathname, user]);
+
+  if (!firstName && !lastName) {
+    //loading screen animation
+    return (
+      <div className="loadingScreen">
+        <div className="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    );
+  }
+
+  //console.log(location.pathname.includes(user.provider._id));
   return (
     <div className="providerProfileContainer">
       <div className="providerNameAndCredentialsContainer">
         <div className="providerNameAndCredentials">
           <h1>{`${firstName} ${lastName}`}</h1>
           <h2>{credentials}</h2>
-          {user.provider &&
-            location.pathname.includes(user.provider._id)(
-              <button
-                className="deleteAccountButton"
-                onClick={handleAreYouSure}
-              >
-                Delete Account
-              </button>
-            )}
+
+          {deleteButton}
+
           <div className="sureContainer">{areYouSure}</div>
         </div>
       </div>
