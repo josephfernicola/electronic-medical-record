@@ -19,6 +19,11 @@ app.use(express.static(path.join(__dirname, "../frontend/build")));
 app.use("/api/patients/", patientRoutes);
 app.use("/api/", providerRoutes);
 
+// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
+})
+
 const PORT = process.env.PORT || 5000;
 //connect to db
 mongoose

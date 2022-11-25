@@ -19,10 +19,9 @@ const loginProvider = async (req, res) => {
   const { email, password } = req.body;
   try {
     const provider = await Provider.login(email, password);
-
     const token = createToken(provider._id);
-
     res.status(200).json({ provider, token });
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -33,8 +32,8 @@ const loginGuest = (async = (req, res) => {
   const guestInfo = guest.guestInfo;
   try {
     const token = createToken(uuidv4);
-
     res.status(200).json({ guestInfo, token });
+
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -48,7 +47,6 @@ const signupProvider = async (req, res) => {
     firstName,
     lastName,
     credentials,
-    specialty,
     photo,
     notes,
   } = req.body;
@@ -61,7 +59,6 @@ const signupProvider = async (req, res) => {
       firstName,
       lastName,
       credentials,
-      specialty,
       photo,
       notes
     );
@@ -138,7 +135,7 @@ const updateProviderNote = async (req, res) => {
     req.body;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "not valid id" });
+    return res.status(404).json({ error: "Not valid id" });
   }
 
   const providerNote = await Provider.updateOne(
@@ -165,7 +162,7 @@ const deleteProviderNote = async (req, res) => {
   const { id } = req.params;
   const { noteID } = req.body;
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    return res.status(404).json({ error: "not valid id" });
+    return res.status(404).json({ error: "Not valid id" });
   }
 
   const note = await Provider.updateOne(
