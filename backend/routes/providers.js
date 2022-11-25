@@ -37,11 +37,6 @@ router.get("/EMR/providers", getAllProviders);
 //GET a single provider profile
 router.get("/EMR/:id", getProviderProfile);
 
-//GET a provider notes page
-router.get("/EMR/notes/:id", (req, res) => {
-  res.json({ mssg: "Get provider notes" });
-});
-
 //Add a note to provider 
 router.patch("/:id", addProviderNote);
 
