@@ -28,10 +28,6 @@ const providerSchema = new Schema(
       type: String,
       required: true,
     },
-    specialty: {
-      type: String,
-      required: false,
-    },
     photo: {
       type: String,
       required: false,
