@@ -108,14 +108,11 @@ const Profile = () => {
     };
     if (user) {
       fetchUserInfo();
-
       if (user.guestInfo) {
         setDeleteButton("");
       } else if (
         user.provider &&
-        location.pathname.includes(user.provider._id) &&
-        firstName &&
-        lastName
+        location.pathname.includes(user.provider._id)
       ) {
         setDeleteButton(
           <button className="deleteAccountButton" onClick={handleAreYouSure}>
@@ -148,16 +145,13 @@ const Profile = () => {
     );
   }
 
-  //console.log(location.pathname.includes(user.provider._id));
   return (
     <div className="providerProfileContainer">
       <div className="providerNameAndCredentialsContainer">
         <div className="providerNameAndCredentials">
           <h1>{`${firstName} ${lastName}`}</h1>
           <h2>{credentials}</h2>
-
           {deleteButton}
-
           <div className="sureContainer">{areYouSure}</div>
         </div>
       </div>
