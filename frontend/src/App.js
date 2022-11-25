@@ -21,36 +21,36 @@ import { patientNames } from "./patientInfo/patientNames";
 
 function App() {
   const { user } = useAuthContext();
-  const [allAllergies, setAllAllergies] = useState([
-    "Buckwheat",
-    "Celery",
-    "Eggs",
-    "Shellfish",
-    "Apples",
-    "Bananas",
-    "Garlic",
-    "Oats",
-    "Prednisone",
-    "Penicillin",
-    "Maize",
-    "Milk",
-    "Peanuts",
-    "Soy",
-    "Tetracycline",
-    "Wheat",
-    "Dilantin",
-    "Grass",
-    "Pollen",
-    "Dust mites",
-    "Cat fur",
-    "Dog fur",
-    "Latex",
-    "Aspirin",
-    "Sulfonamides",
-  ]);
+  // const [allAllergies, setAllAllergies] = useState([
+  //   "Buckwheat",
+  //   "Celery",
+  //   "Eggs",
+  //   "Shellfish",
+  //   "Apples",
+  //   "Bananas",
+  //   "Garlic",
+  //   "Oats",
+  //   "Prednisone",
+  //   "Penicillin",
+  //   "Maize",
+  //   "Milk",
+  //   "Peanuts",
+  //   "Soy",
+  //   "Tetracycline",
+  //   "Wheat",
+  //   "Dilantin",
+  //   "Grass",
+  //   "Pollen",
+  //   "Dust mites",
+  //   "Cat fur",
+  //   "Dog fur",
+  //   "Latex",
+  //   "Aspirin",
+  //   "Sulfonamides",
+  // ]);
 
+   //this posted all patients to mongoDB
   useEffect(() => {
-    //this posted all patients to mongoDB
     // const handlePatientUpload = async () => {
     //   const uploadPatientData = async (name, pmh, notes, age, allergies) => {
     //     const patient = { name, pmh, notes, age, allergies };

@@ -8,24 +8,16 @@ const mongoose = require("mongoose");
 //express app
 const app = express();
 
-
 //middleware
 app.use(express.json());
 
-
-const path = require('path')
+const path = require("path");
 
 // Serve static files from the React frontend app
-app.use(express.static(path.join(__dirname, '../frontend/build')))
-
+app.use(express.static(path.join(__dirname, "../frontend/build")));
 
 app.use("/api/patients/", patientRoutes);
 app.use("/api/", providerRoutes);
-
-// AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../frontend/build/index.html'))
-})
 
 const PORT = process.env.PORT || 5000;
 //connect to db
@@ -34,7 +26,7 @@ mongoose
   .then(() => {
     //listen for requests
     app.listen(PORT, function () {
-      console.log("Connect to db and listening on:", PORT);
+      console.log("Connected to db and listening on:", PORT);
     });
   })
   .catch((err) => {
