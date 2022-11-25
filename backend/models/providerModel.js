@@ -47,11 +47,11 @@ providerSchema.statics.signup = async function (
   firstName,
   lastName,
   credentials,
-  specialty,
   photo,
   notes
 ) {
   const emailExists = await this.findOne({ email });
+
   //validation
   if (!email || !password) {
     throw Error("All fields must be filled");
@@ -78,7 +78,6 @@ providerSchema.statics.signup = async function (
     firstName,
     lastName,
     credentials,
-    specialty,
     photo,
     notes,
   });

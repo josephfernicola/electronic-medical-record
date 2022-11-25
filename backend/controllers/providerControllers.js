@@ -183,7 +183,6 @@ const deleteProvider = async (req, res) => {
   if (!provider) {
     return res.status(404).json({ error: "No such provider" });
   }
-  console.log(provider)
   return res.status(200).json(provider);
 };
 
