@@ -113,13 +113,14 @@ const Profile = () => {
         setDeleteButton("");
       } else if (
         user.provider &&
-        location.pathname.includes(user.provider._id)
+        location.pathname.includes(user.provider._id) &&
+        firstName &&
+        lastName
       ) {
         setDeleteButton(
-          <button
-            className="deleteAccountButton"
-            onClick={handleAreYouSure}
-          >Delete Account</button>
+          <button className="deleteAccountButton" onClick={handleAreYouSure}>
+            Delete Account
+          </button>
         );
       }
     }

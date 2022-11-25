@@ -14,9 +14,7 @@ const {
 
 const requireAuth = require("../middleware/requireAuth");
 
-
 const router = express.Router();
-
 
 //sign up a new provider
 router.post("/EMR/signup", signupProvider);
@@ -33,7 +31,6 @@ router.use(requireAuth);
 //GET all providers
 router.get("/EMR/providers", getAllProviders);
 
-
 //GET a single provider profile
 router.get("/EMR/:id", getProviderProfile);
 
@@ -48,6 +45,5 @@ router.patch("/providers/deleteProviderNote/:id", deleteProviderNote);
 
 //delete provider account
 router.patch("/providers/deleteProviderAccount", deleteProvider);
-
 
 module.exports = router;
