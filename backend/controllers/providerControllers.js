@@ -5,6 +5,9 @@ const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 
 const createToken = (_id) => {
+  //first arg = mongoDB id. Payload of token we want to create
+  //second arg = Secret string only known to server
+  //third arg = Expiration date of token
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });
 };
 
@@ -19,9 +22,9 @@ const loginProvider = async (req, res) => {
   const { email, password } = req.body;
   try {
     const provider = await Provider.login(email, password);
+    //create jwt to send to front end
     const token = createToken(provider._id);
     res.status(200).json({ provider, token });
-
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -33,7 +36,6 @@ const loginGuest = (async = (req, res) => {
   try {
     const token = createToken(uuidv4);
     res.status(200).json({ guestInfo, token });
-
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
@@ -41,15 +43,8 @@ const loginGuest = (async = (req, res) => {
 
 //sign up provider
 const signupProvider = async (req, res) => {
-  const {
-    email,
-    password,
-    firstName,
-    lastName,
-    credentials,
-    photo,
-    notes,
-  } = req.body;
+  const { email, password, firstName, lastName, credentials, photo, notes } =
+    req.body;
 
   //add doc to db
   try {
@@ -62,6 +57,7 @@ const signupProvider = async (req, res) => {
       photo,
       notes
     );
+    //create jwt to send to front end
     const token = createToken(provider._id);
     res.status(200).json({ provider, token });
   } catch (error) {

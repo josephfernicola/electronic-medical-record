@@ -15,6 +15,7 @@ export const authReducer = (state, action) => {
 };
 
 export const AuthContextProvider = ({ children }) => {
+  //sets the initial value of user to null
   const [state, dispatch] = useReducer(authReducer, { user: null });
 
   useEffect(() => {
