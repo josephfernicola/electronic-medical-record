@@ -1,4 +1,5 @@
-Full stack MERN electronic medical record application
+ # MERN stack electronic medical record application
+
 
 Users can create patient notes, edit their own notes, view all patient notes from other providers, and delete their own notes
 
