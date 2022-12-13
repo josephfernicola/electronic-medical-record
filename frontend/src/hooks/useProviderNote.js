@@ -14,7 +14,7 @@ export const useProviderNote = () => {
     patientName,
     noteID,
     date,
-    time, 
+    time,
     setError
   ) => {
     const note = {
