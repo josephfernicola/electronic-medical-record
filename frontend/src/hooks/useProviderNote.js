@@ -3,9 +3,7 @@ import { useAuthContext } from "./useAuthContext";
 
 export const useProviderNote = () => {
   const { user } = useAuthContext();
-  const { dispatch } = useAuthContext();
   const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
 
   const addProviderNote = async (
     subjective,
