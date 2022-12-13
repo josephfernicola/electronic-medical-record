@@ -4,19 +4,12 @@ import { useLocation } from "react-router-dom";
 
 export const usePatientUpdateNote = () => {
   const { user } = useAuthContext();
-  const { dispatch } = useAuthContext();
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(null);
   const [patientId, setPatientId] = useState("");
   const [noteID, setNoteID] = useState("");
 
   const location = useLocation();
 
   useEffect(() => {
-    if (!user) {
-      //setError("You must be logged in");
-      return;
-    }
     const fetchPatientInfo = async function () {
       const response = await fetch("/api/patients/getPatients", {
         headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
@@ -37,8 +30,6 @@ export const usePatientUpdateNote = () => {
     };
     if (user) {
       fetchPatientInfo();
-
-      //setError(null);
     }
   }, []);
 
@@ -49,7 +40,8 @@ export const usePatientUpdateNote = () => {
     plan,
     date,
     noteID,
-    time
+    time,
+    setError
   ) => {
     const note = {
       subjective,

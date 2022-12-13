@@ -3,7 +3,6 @@ import { useAuthContext } from "./useAuthContext";
 
 export const useProviderNote = () => {
   const { user } = useAuthContext();
-  const [error, setError] = useState(null);
 
   const addProviderNote = async (
     subjective,
@@ -16,7 +15,8 @@ export const useProviderNote = () => {
     patientName,
     noteID,
     date,
-    time
+    time, 
+    setError
   ) => {
     const note = {
       subjective,

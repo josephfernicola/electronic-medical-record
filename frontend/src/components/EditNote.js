@@ -18,7 +18,7 @@ const EditNote = () => {
   const [assessment, setAssessment] = useState(currentNote.assessment);
   const [plan, setPlan] = useState(currentNote.plan);
   const [allPatientNotes, setAllPatientNotes] = useState([]);
-  const [allProviderNotes, setAllProviderNotes] = useState([]);
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -95,6 +95,7 @@ const EditNote = () => {
       date,
       currentNote.noteID,
       convertTime(time),
+      setError
     );
 
     await updatePatientNote(
@@ -105,6 +106,7 @@ const EditNote = () => {
       date,
       currentNote.noteID,
       convertTime(time),
+      setError
     );
     navigate(`/completedNote/${providerId}/${currentNote.noteID}`)
   };
@@ -162,6 +164,7 @@ const EditNote = () => {
           </Link>
         </div>
       </form>
+      {error}
     </div>
   );
 };
