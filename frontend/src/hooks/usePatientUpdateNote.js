@@ -41,7 +41,6 @@ export const usePatientUpdateNote = () => {
     date,
     noteID,
     time,
-    setError
   ) => {
     const note = {
       subjective,
@@ -70,9 +69,9 @@ export const usePatientUpdateNote = () => {
         }
       });
       localStorage.setItem("user", JSON.stringify(currentUserLocalStorage));
-      setError(null);
     } catch (error) {
-      setError(error);
+      console.log(error)
+
     }
   };
 

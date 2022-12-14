@@ -15,7 +15,6 @@ export const useProviderNote = () => {
     noteID,
     date,
     time,
-    setError
   ) => {
     const note = {
       subjective,
@@ -39,9 +38,11 @@ export const useProviderNote = () => {
         method: "PATCH",
         body: JSON.stringify(note),
       });
-      setError(null);
+      //setError(null);
+
     } catch (error) {
-      setError(error);
+      //setError(error);
+      console.log(error)
     }
   };
 
