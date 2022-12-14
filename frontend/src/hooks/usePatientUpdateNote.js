@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 export const usePatientUpdateNote = () => {
   const { user } = useAuthContext();
   const [patientId, setPatientId] = useState("");
-  const [noteID, setNoteID] = useState("");
+  const [patientError, setPatientError] = useState(null);
 
   const location = useLocation();
 
@@ -20,9 +20,7 @@ export const usePatientUpdateNote = () => {
         json.forEach(async function (patient) {
           patient.notes.forEach((note) => {
             if (location.pathname.includes(note.noteID)) {
-              //console.log(patient._id);
               setPatientId(patient._id);
-              setNoteID(noteID);
             }
           });
         });
@@ -40,7 +38,7 @@ export const usePatientUpdateNote = () => {
     plan,
     date,
     noteID,
-    time,
+    time
   ) => {
     const note = {
       subjective,
@@ -64,16 +62,16 @@ export const usePatientUpdateNote = () => {
       const currentUserLocalStorage = JSON.parse(localStorage.getItem("user"));
       currentUserLocalStorage.provider.notes.forEach((ele) => {
         if (ele.noteID === noteID) {
-          const index = currentUserLocalStorage.provider.notes.indexOf(ele)
-          currentUserLocalStorage.provider.notes.splice(index, 1, note)
+          const index = currentUserLocalStorage.provider.notes.indexOf(ele);
+          currentUserLocalStorage.provider.notes.splice(index, 1, note);
         }
       });
       localStorage.setItem("user", JSON.stringify(currentUserLocalStorage));
+      setPatientError(null);
     } catch (error) {
-      console.log(error)
-
+      setPatientError(error);
     }
   };
 
-  return { updatePatientNote };
+  return { updatePatientNote, patientError };
 };

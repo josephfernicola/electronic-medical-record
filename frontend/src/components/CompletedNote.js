@@ -36,7 +36,6 @@ const CompletedNote = () => {
                   note.provider ===
                   user.provider.firstName + " " + user.provider.lastName
                 ) {
-                  // console.log(note.provider);
                   setEditNoteButton(
                     <button className="editNoteButton">Edit note</button>
                   );

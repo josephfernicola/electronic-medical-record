@@ -49,7 +49,6 @@ const AllPatients = () => {
     });
     let firstTenMatches = patientMatches.slice(0, 10);
     firstTenMatches.sort((a, b) => a.name.localeCompare(b.name));
-    console.log(firstTenMatches);
     setAllPatients(firstTenMatches);
     setNoResults("");
     if (e.target.value === "") {
@@ -64,7 +63,8 @@ const AllPatients = () => {
   };
 
   if (!allPatients) {
-    return ( //loading screen animation
+    return (
+      //loading screen animation
       <div className="loadingScreen">
         <div className="lds-spinner">
           <div></div>
@@ -127,7 +127,9 @@ const AllPatients = () => {
                 <div className="allergies">
                   <div className="allergiesTitle">Allergies</div>
                   {patient.allergies.map((allergy, index) => (
-                    <div className="eachAllergy" key={index}>{allergy}</div>
+                    <div className="eachAllergy" key={index}>
+                      {allergy}
+                    </div>
                   ))}
                 </div>
               </div>

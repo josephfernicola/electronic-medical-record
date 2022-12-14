@@ -60,7 +60,6 @@ const Profile = () => {
       }
     );
     const patientJson = await patientResponse.json();
-    console.log(patientJson);
 
     const providerResponse = await fetch(
       "/api/providers/deleteProviderAccount",
@@ -76,7 +75,6 @@ const Profile = () => {
       }
     );
     const providerJson = await providerResponse.json();
-    console.log(providerJson);
     logout();
   };
 

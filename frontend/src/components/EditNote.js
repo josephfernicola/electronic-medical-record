@@ -2,14 +2,16 @@ import { useState, useEffect } from "react";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { usePatientUpdateNote } from "../hooks/usePatientUpdateNote";
-import {useProviderUpdateNote} from "../hooks/useProviderUpdateNote"
+import { useProviderUpdateNote } from "../hooks/useProviderUpdateNote";
+import { useLogout } from "../hooks/useLogout";
 
 const EditNote = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { logout } = useLogout();
 
-  const { updatePatientNote } = usePatientUpdateNote();
-  const {updateProviderNote} = useProviderUpdateNote();
+  const { updatePatientNote, patientError } = usePatientUpdateNote();
+  const { updateProviderNote, providerError } = useProviderUpdateNote();
   const { currentNote, providerId } = location.state;
 
   const { user } = useAuthContext();
@@ -17,31 +19,12 @@ const EditNote = () => {
   const [objective, setObjective] = useState(currentNote.objective);
   const [assessment, setAssessment] = useState(currentNote.assessment);
   const [plan, setPlan] = useState(currentNote.plan);
-  const [allPatientNotes, setAllPatientNotes] = useState([]);
-  const [error, setError] = useState(null)
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-    const fetchPatientInfo = async () => {
-      const response = await fetch("/api/patients/getPatients", {
-        headers: { Authorization: `Bearer ${user.token}` }, //to ensure user is logged in when making reqest
-      });
-      const json = await response.json();
-
-      if (response.ok) {
-        json.forEach(async function (patient) {
-          patient.notes.forEach((note) => {
-            if (note.noteID === currentNote.noteID) {
-              setAllPatientNotes(patient.notes);
-            }
-          });
-        });
-      }
-    };
-    
-    if (user) {
-      fetchPatientInfo();
+    if (!user) {
+      logout();
     }
+    window.scrollTo(0, 0);
   }, []);
 
   const convertTime = (time) => {
@@ -94,8 +77,7 @@ const EditNote = () => {
       plan,
       date,
       currentNote.noteID,
-      convertTime(time),
-      setError
+      convertTime(time)
     );
 
     await updatePatientNote(
@@ -105,10 +87,10 @@ const EditNote = () => {
       plan,
       date,
       currentNote.noteID,
-      convertTime(time),
-      setError
+      convertTime(time)
     );
-    navigate(`/completedNote/${providerId}/${currentNote.noteID}`)
+
+    navigate(`/completedNote/${providerId}/${currentNote.noteID}`);
   };
 
   return (
@@ -164,7 +146,8 @@ const EditNote = () => {
           </Link>
         </div>
       </form>
-      {error}
+      <div>{providerError}</div>
+      <div>{patientError}</div>
     </div>
   );
 };

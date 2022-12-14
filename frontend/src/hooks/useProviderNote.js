@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
 
 export const useProviderNote = () => {
   const { user } = useAuthContext();
+  const [providerError, setProviderError] = useState(null);
 
   const addProviderNote = async (
     subjective,
@@ -14,7 +16,7 @@ export const useProviderNote = () => {
     patientName,
     noteID,
     date,
-    time,
+    time
   ) => {
     const note = {
       subjective,
@@ -38,13 +40,11 @@ export const useProviderNote = () => {
         method: "PATCH",
         body: JSON.stringify(note),
       });
-      //setError(null);
-
+      setProviderError(null);
     } catch (error) {
-      //setError(error);
-      console.log(error)
+      setProviderError(error);
     }
   };
 
-  return { addProviderNote };
+  return { addProviderNote, providerError };
 };
