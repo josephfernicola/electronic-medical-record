@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const { v4: uuidv4 } = require("uuid");
 
 const createToken = (_id) => {
-  //first arg = mongoDB id. Payload of token we want to create
+  //first arg = mongoDB id. Payload of token that is created
   //second arg = Secret string only known to server
   //third arg = Expiration date of token
   return jwt.sign({ _id }, process.env.SECRET, { expiresIn: "3d" });

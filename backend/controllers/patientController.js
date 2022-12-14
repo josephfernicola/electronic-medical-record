@@ -111,7 +111,6 @@ const deletePatientNote = async (req, res) => {
 };
 
 const deleteMultiplePatientNotes = async (req, res) => {
-  //console.log(req.body.noteIDsAndPatientNames);
   req.body.noteIDsAndPatientNames.forEach(async (ele) => {
     const note = await Patient.findOneAndUpdate(
       { name: ele.name },
