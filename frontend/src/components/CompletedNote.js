@@ -137,7 +137,7 @@ const CompletedNote = () => {
   return (
     <div className="currentNoteContainer">
       <div className="currentNoteInfo">
-        <Link to={`/patient/${patientId}`}>
+        <Link to={`/patient/${patientId}`} className="patientNameLink">
           <div className="patientNameOnNote">{currentNote.patient}</div>
         </Link>
         <div>

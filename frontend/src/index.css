@@ -525,6 +525,9 @@ textarea {
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
+.patientNameLink {
+  width: fit-content;
+}
 
 .patientNameOnNote {
   font-weight: 500;
