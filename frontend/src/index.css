@@ -80,10 +80,11 @@ body {
 }
 
 .homepageWelcome {
-  font-size: 2rem;
+  font-size: 4rem;
   font-weight: 600;
   z-index: 50;
   margin-bottom: 4rem;
+  margin-top: 4rem;
 }
 .homepageText {
   font-size: 1.5rem;
