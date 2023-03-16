@@ -6,23 +6,20 @@ import { useLogout } from "../hooks/useLogout";
 const AllProviders = () => {
   const [allProviders, setAllProviders] = useState(null);
   const [originalAllProviders, setOriginalAllProviders] = useState(null);
-  const [fullNames, setFullNames] = useState({})
+  const [fullNames, setFullNames] = useState({});
   const [noResults, setNoResults] = useState("");
   const { user } = useAuthContext();
   const { logout } = useLogout();
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-
-
-  }, []);
+  useEffect(() => {}, []);
 
   const searchInputChange = async (e) => {
     let searchMatches = [];
     searchMatches.push(originalAllProviders);
     let providerMatches = searchMatches[0].filter((match) => {
-      let fullName = match.firstName.concat((" "), match.lastName)
+      let fullName = match.firstName.concat(" ", match.lastName);
       const regex = new RegExp(`^${e.target.value}`, "gi");
       return fullName.match(regex);
     });
@@ -124,5 +121,3 @@ const AllProviders = () => {
 };
 
 export default AllProviders;
-
-//do authorization check for all other areaa
