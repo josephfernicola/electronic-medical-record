@@ -13,8 +13,6 @@ const AllProviders = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {}, []);
-
   const searchInputChange = async (e) => {
     let searchMatches = [];
     searchMatches.push(originalAllProviders);
