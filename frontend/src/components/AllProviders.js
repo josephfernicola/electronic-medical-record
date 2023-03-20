@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
 
 const AllProviders = () => {
   const [allProviders, setAllProviders] = useState(null);
   const [originalAllProviders, setOriginalAllProviders] = useState(null);
-  const [fullNames, setFullNames] = useState({});
   const [noResults, setNoResults] = useState("");
   const { user } = useAuthContext();
   const { logout } = useLogout();
