@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "frontend": "cd frontend && npm start",
+    "frontend": "cd frontend && npm start --prefix frontend",
     "backend": "cd backend && nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run backend\" \"npm run frontend\"",
     "heroku-postbuild": "cd frontend && npm install && npm run build"
@@ -21,6 +21,7 @@
     "mongoose": "^6.5.2",
     "node": "^16.14.2",
     "nodemon": "^2.0.19",
+    "prefix": "^1.0.0",
     "uuid": "^9.0.0",
     "validator": "^13.7.0"
   },
