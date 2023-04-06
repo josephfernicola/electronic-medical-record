@@ -6,4 +6,4 @@ Users can create patient notes, edit their own notes, view all patient documenta
 Implemented authentication and API endpoint protection using JSON web tokens
 
 Live Website:
-https://noble-ehr.herokuapp.com/login
+https://noble-emr.onrender.com/
